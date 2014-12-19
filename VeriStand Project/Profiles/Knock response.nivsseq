@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RealTimeSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Description>Take the car to about 75 mph</Description>
+	<FileFormatVersion Major="2012" Minor="0" Fix="0" Build="0" />
+	<Version Major="1" Minor="0" Fix="0" Build="34" />
+	<References>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\Wait.nivsseq</Path>
+			<Alias>Wait</Alias>
+		</Reference>
+	</References>
+	<Variables>
+		<ReturnType>
+			<Identifier>Pass</Identifier>
+			<DefaultValue xsi:type="BooleanValue">
+				<Value>true</Value>
+			</DefaultValue>
+		</ReturnType>
+		<Parameters>
+			<ParameterDeclaration>
+				<Description>APP Low</Description>
+				<Identifier>Knock_Amp</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Knock/Knock Amp Cyl 1" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Knock Base Amp</Description>
+				<Identifier>Knock_Base_Amp</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Knock/Knock Base Amp" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>Spark_End_Angle</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/State/Sparks/Spark 1 End angle" />
+			</ParameterDeclaration>
+		</Parameters>
+		<LocalVariables>
+			<LocalDeclaration>
+				<Identifier>Sum_End_Angle</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+			<LocalDeclaration>
+				<Identifier>End_Angle_0</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+			<LocalDeclaration>
+				<Identifier>End_Angle_1</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+			<LocalDeclaration>
+				<Identifier>End_Angle_2</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+		</LocalVariables>
+	</Variables>
+	<Code>
+		<Setup>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Knock_Base_Amp=0.1</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Knock_Amp =0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Wait(1)</ExpressionString>
+				</Statement>
+				<Statement xsi:type="ForLoop">
+					<AutoYield>true</AutoYield>
+					<Body>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Wait(0.5)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Sum_End_Angle +=Spark_End_Angle</ExpressionString>
+						</Statement>
+					</Body>
+					<LoopVariable>i</LoopVariable>
+					<Iterations>
+						<ExpressionString>10</ExpressionString>
+					</Iterations>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>End_Angle_0 = Sum_End_Angle/10</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Sum_End_Angle = 0</ExpressionString>
+				</Statement>
+			</Body>
+		</Setup>
+		<Main>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Knock_Amp = 1</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Wait(1)</ExpressionString>
+				</Statement>
+				<Statement xsi:type="ForLoop">
+					<AutoYield>true</AutoYield>
+					<Body>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Wait(0.5)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Sum_End_Angle +=Spark_End_Angle</ExpressionString>
+						</Statement>
+					</Body>
+					<LoopVariable>j</LoopVariable>
+					<Iterations>
+						<ExpressionString>10</ExpressionString>
+					</Iterations>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>End_Angle_1 = Sum_End_Angle/10</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Sum_End_Angle = 0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Knock_Amp = 2</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Wait(1)</ExpressionString>
+				</Statement>
+				<Statement xsi:type="ForLoop">
+					<AutoYield>true</AutoYield>
+					<Body>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Wait(0.5)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Sum_End_Angle +=Spark_End_Angle</ExpressionString>
+						</Statement>
+					</Body>
+					<LoopVariable>k</LoopVariable>
+					<Iterations>
+						<ExpressionString>10</ExpressionString>
+					</Iterations>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>End_Angle_2 = Sum_End_Angle/10</ExpressionString>
+				</Statement>
+				<Statement xsi:type="IfElse">
+					<TestExpression>
+						<ExpressionString>(End_Angle_1 - End_Angle_0) &lt; 8</ExpressionString>
+					</TestExpression>
+					<IfTrue>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Pass = false</ExpressionString>
+						</Statement>
+					</IfTrue>
+					<IfFalse />
+				</Statement>
+				<Statement xsi:type="IfElse">
+					<TestExpression>
+						<ExpressionString>(End_Angle_2 - End_Angle_1) &lt; 8</ExpressionString>
+					</TestExpression>
+					<IfTrue>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Pass = false</ExpressionString>
+						</Statement>
+					</IfTrue>
+					<IfFalse />
+				</Statement>
+			</Body>
+		</Main>
+		<CleanUp>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Knock_Amp =0</ExpressionString>
+				</Statement>
+			</Body>
+		</CleanUp>
+	</Code>
+</RealTimeSequence>

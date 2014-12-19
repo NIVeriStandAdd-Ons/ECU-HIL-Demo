@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StimulusProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FileFormatVersion Major="2012" Minor="0" Fix="0" Build="0" />
+	<Version Major="1" Minor="0" Fix="0" Build="0" />
+	<Setup Name="Setup">
+		<Step xsi:type="RealTimeSequenceCallStep">
+			<ParameterAssignments>
+				<ParameterAssignment Name="Gas_Pedal">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Gas" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Vehicle_Speed">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/State/Vehicle Speed" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Cruise_Control_Enable">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Cruise Control/Cruise Control Enable" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Key">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Key" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Starter">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Starter" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="RPM">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/State/Simulated RPM" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Gear">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Gear" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Brake">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Brake" />
+				</ParameterAssignment>
+			</ParameterAssignments>
+			<SequencePath>Initialize and drive.nivsseq</SequencePath>
+			<Target />
+			<OutputEvaluation xsi:type="BooleanEvaluation">
+				<Invert>false</Invert>
+			</OutputEvaluation>
+		</Step>
+	</Setup>
+	<Main Name="Main">
+		<Step xsi:type="RealTimeSequenceCallStep">
+			<ParameterAssignments>
+				<ParameterAssignment Name="Starter">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Starter" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Gas">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Gas" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Brake">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Brake" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="Gear">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Gear" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="CCEnable">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Cruise Control/Cruise Control Enable" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="CCSet">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Cruise Control/Cruise Control Set" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="CCsetSpeed">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Cruise Control/Cruise Set Speed" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="CCAccel">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Cruise Control/Cruise Control Accel" />
+				</ParameterAssignment>
+				<ParameterAssignment Name="CCDecel">
+					<Value xsi:type="SystemDefinitionChannelResource" Path="Aliases/Driver controls/Cruise Control/Cruise Control Decel" />
+				</ParameterAssignment>
+			</ParameterAssignments>
+			<SequencePath>Cruise Control.nivsseq</SequencePath>
+			<Target />
+			<OutputEvaluation xsi:type="BooleanEvaluation">
+				<Invert>false</Invert>
+			</OutputEvaluation>
+		</Step>
+	</Main>
+	<CleanUp Name="Clean Up" />
+	<ResultsDirectory>Test Results</ResultsDirectory>
+</StimulusProfile>

@@ -1,0 +1,34 @@
+Targets/Controller/Calculated Channels/APP_Calculated	Targets/Controller/Hardware/Chassis/DAQ/PXI1Slot2/Analog Output/AO0
+Targets/Controller/Calculated Channels/IMP_Calculated	Targets/Controller/Hardware/Chassis/DAQ/PXI1Slot2/Analog Output/AO2
+Targets/Controller/Calculated Channels/fuelP_Calculated	Targets/Controller/Hardware/Chassis/DAQ/PXI1Slot2/Analog Output/AO3
+Targets/Controller/Calculated Channels/Lamda To V	Targets/Controller/Hardware/Chassis/DAQ/PXI1Slot2/Analog Output/AO4
+Targets/Controller/Calculated Channels/Silence_Spark	Targets/Controller/Custom Devices/PXI-2510/Channels/Fault Ch. 20
+Targets/Controller/Calculated Channels/Silence_Spark	Targets/Controller/Custom Devices/PXI-2510/Channels/Fault Ch. 21
+Targets/Controller/Calculated Channels/Silence_Spark	Targets/Controller/Custom Devices/PXI-2510/Channels/Fault Ch. 22
+Targets/Controller/Calculated Channels/Silence_Spark	Targets/Controller/Custom Devices/PXI-2510/Channels/Fault Ch. 23
+Targets/Controller/Calculated Channels/Silence_Spark	Targets/Controller/Custom Devices/PXI-2510/Channels/Fault Ch. 24
+Targets/Controller/Calculated Channels/Silence_Spark	Targets/Controller/Custom Devices/PXI-2510/Channels/Fault Ch. 25
+Targets/Controller/Calculated Channels/Airflow_Calculated	Targets/Controller/Custom Devices/PWM 1/Write/Airflow/Frequency
+Targets/Controller/User Channels/IMT (K)	Targets/Controller/Custom Devices/NI 272x Resistive Simulation/Desired Values/CH0
+Targets/Controller/Simulation Models/Models/eng/Outports/ENG::Speed(rpm)	Targets/Controller/Custom Devices/Engine Simulation Toolkit/apu/Commands/Desired Speed
+Targets/Controller/Calculated Channels/Vehicle Speed (km//h)	Targets/Controller/Custom Devices/J1939 Instrument Cluster/Outgoing/Event Triggered/CCVS/Wheel_Based_Vehicle_Speed
+Targets/Controller/Custom Devices/Engine Simulation Toolkit/apu/State/Actual Speed	Targets/Controller/Custom Devices/J1939 Instrument Cluster/Outgoing/Event Triggered/EEC1/Engine_Speed
+Targets/Controller/User Channels/Gas	Targets/Controller/Custom Devices/J1939 Instrument Cluster/Outgoing/Event Triggered/EEC2/Accelerator_Pedal_Position_1
+Targets/Controller/User Channels/Coolant Temp (C)	Targets/Controller/Custom Devices/J1939 Instrument Cluster/Outgoing/Event Triggered/ET1/Engine_Coolant_Temperature
+Targets/Controller/Calculated Channels/IMT in C	Targets/Controller/Custom Devices/J1939 Instrument Cluster/Outgoing/Event Triggered/IC1/Engine_Intake_Manifold_1_Temperature
+Targets/Controller/Calculated Channels/Brake switch	Targets/Controller/Custom Devices/J1939 ECU/Outgoing/Event Triggered/CCVS/Brake_Switch
+Targets/Controller/Calculated Channels/Vehicle Speed (km//h)	Targets/Controller/Custom Devices/J1939 ECU/Outgoing/Event Triggered/CCVS/Wheel_Based_Vehicle_Speed
+Targets/Controller/Calculated Channels/ThrottleAngle	Targets/Controller/Simulation Models/Models/eng/Inports/Manf::Throttle Postion (deg)
+Targets/Controller/Simulation Models/Models/mantran/Outports/TRAN::Torque Out (Nm)	Targets/Controller/Simulation Models/Models/eng/Inports/Shaft::Load Torque (Nm)
+Targets/Controller/Calculated Channels/Starter Torque	Targets/Controller/Simulation Models/Models/eng/Inports/Shaft::Starer Torque (Nm)
+Targets/Controller/Calculated Channels/Fuel per Cycle(corrected)	Targets/Controller/Simulation Models/Models/eng/Inports/Comb::FPC (g//cyl)
+Targets/Controller/Calculated Channels/Duration(sec) Injector 1	Targets/Controller/Simulation Models/Models/finj/Inports/Fuel::Injection Ontime (sec)/Fuel::Injection Ontime (sec)(1,1)
+Targets/Controller/Calculated Channels/Duration(sec) Injector 2	Targets/Controller/Simulation Models/Models/finj/Inports/Fuel::Injection Ontime (sec)/Fuel::Injection Ontime (sec)(1,2)
+Targets/Controller/Calculated Channels/Duration(sec) Injector 3	Targets/Controller/Simulation Models/Models/finj/Inports/Fuel::Injection Ontime (sec)/Fuel::Injection Ontime (sec)(1,3)
+Targets/Controller/Calculated Channels/Duration(sec) Injector 4	Targets/Controller/Simulation Models/Models/finj/Inports/Fuel::Injection Ontime (sec)/Fuel::Injection Ontime (sec)(1,4)
+Targets/Controller/Calculated Channels/Duration(sec) Injector 5	Targets/Controller/Simulation Models/Models/finj/Inports/Fuel::Injection Ontime (sec)/Fuel::Injection Ontime (sec)(1,5)
+Targets/Controller/Calculated Channels/Duration(sec) Injector 6	Targets/Controller/Simulation Models/Models/finj/Inports/Fuel::Injection Ontime (sec)/Fuel::Injection Ontime (sec)(1,6)
+Targets/Controller/Calculated Channels/Nradpersec	Targets/Controller/Simulation Models/Models/mantran/Inports/Eng::N (rad//sec)
+Targets/Controller/Simulation Models/Models/veh/Outports/Veh::Drive Shaft Speed (rad//sec)	Targets/Controller/Simulation Models/Models/mantran/Inports/Veh::Tran Out Speed (rad//s)
+Targets/Controller/Simulation Models/Models/mantran/Outports/TRAN::Torque Out (Nm)	Targets/Controller/Simulation Models/Models/veh/Inports/Veh::Transission Out Torque (Nm)
+Targets/Controller/Calculated Channels/Brake_Force	Targets/Controller/Simulation Models/Models/veh/Inports/Veh::Brake Force (N)

@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RealTimeSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FileFormatVersion Major="2012" Minor="0" Fix="0" Build="0" />
+	<Version Major="1" Minor="0" Fix="0" Build="19" />
+	<References>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\WaitUntilSettled.nivsseq</Path>
+			<Alias>WaitUntilSettled</Alias>
+		</Reference>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\Wait.nivsseq</Path>
+			<Alias>Wait</Alias>
+		</Reference>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Mathematics\Discrete Math\GCD.nivsseq</Path>
+			<Alias>GCD</Alias>
+		</Reference>
+	</References>
+	<Variables>
+		<ReturnType>
+			<Identifier>Pass</Identifier>
+			<DefaultValue xsi:type="BooleanValue">
+				<Value>false</Value>
+			</DefaultValue>
+		</ReturnType>
+		<Parameters>
+			<ParameterDeclaration>
+				<Description>Starter</Description>
+				<Identifier>Starter</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Starter" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Gas</Description>
+				<Identifier>Gas</Identifier>
+				<DefaultValue xsi:type="DoubleValue" Units="%">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Gas" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Brake</Description>
+				<Identifier>Brake</Identifier>
+				<DefaultValue xsi:type="DoubleValue" Units="%">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Brake" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Gear</Description>
+				<Identifier>Gear</Identifier>
+				<DefaultValue xsi:type="I32Value">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Gear" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Control Enable</Description>
+				<Identifier>CCEnable</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Enable" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Control Set</Description>
+				<Identifier>CCSet</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Set" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>CCsetSpeed</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Set Speed" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>CCAccel</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Accel" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Identifier>CCDecel</Identifier>
+				<DefaultValue xsi:type="BooleanValue">
+					<Value>false</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Decel" />
+			</ParameterDeclaration>
+		</Parameters>
+		<LocalVariables>
+			<LocalDeclaration>
+				<Identifier>InitSpeed</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+		</LocalVariables>
+	</Variables>
+	<Code>
+		<Setup>
+			<Body />
+		</Setup>
+		<Main>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>CCEnable=true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>CCSet=1</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Wait(1)</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>CCSet=0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Gas =0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>InitSpeed=CCsetSpeed</ExpressionString>
+				</Statement>
+				<Statement xsi:type="WhileLoop">
+					<AutoYield>true</AutoYield>
+					<Body>
+						<Statement xsi:type="Expression">
+							<ExpressionString>CCAccel=1</ExpressionString>
+						</Statement>
+						<Statement xsi:type="WhileLoop">
+							<AutoYield>true</AutoYield>
+							<Body />
+							<LoopTest>
+								<ExpressionString>CCsetSpeed&lt;(InitSpeed+20)</ExpressionString>
+							</LoopTest>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>CCAccel=0</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Wait(5)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>CCDecel=1</ExpressionString>
+						</Statement>
+						<Statement xsi:type="WhileLoop">
+							<AutoYield>true</AutoYield>
+							<Body />
+							<LoopTest>
+								<ExpressionString>CCsetSpeed&gt;(InitSpeed-20)</ExpressionString>
+							</LoopTest>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>CCDecel=0</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Wait(5)</ExpressionString>
+						</Statement>
+					</Body>
+					<LoopTest>
+						<ExpressionString>true</ExpressionString>
+					</LoopTest>
+				</Statement>
+			</Body>
+		</Main>
+		<CleanUp>
+			<Body />
+		</CleanUp>
+	</Code>
+</RealTimeSequence>

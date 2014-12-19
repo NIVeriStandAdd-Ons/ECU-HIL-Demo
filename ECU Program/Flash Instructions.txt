@@ -1,0 +1,7 @@
+To program the ECU, place the srz file in the c:\ecufiles\programs directory of your mototune enabled PC.  Place the dll in the c:\ecufiles\TBDDLL directory.  
+Plug in the programming hardware
+Deploy the sysdef
+Launch mototune, click program, select the SRZ and use PCM-1 as the device
+
+
+I've had issues where device manager has a yellow ! over the Kvaser USB can device, disabling the device and reenabling it seems to fix it. Perhaps after closing any extra windows open.

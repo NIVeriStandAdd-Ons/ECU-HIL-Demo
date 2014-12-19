@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile xmlns="http://www.ni.com/PlatformFramework">
+    <SourceModelFeatureSet>
+        <ParsableNamespace AssemblyFileVersion="2.0.0.13870" FeatureSetName="NI VeriStand UI Manager" Name="http://www.ni.com/PlatformFramework" Version="2.0.0.49152" />
+        <ParsableNamespace AssemblyFileVersion="1.0.0.13870" FeatureSetName="NI VeriStand UI Manager" Name="http://www.ni.com/UIManager.Design" Version="2.0.0.32768" />
+    </SourceModelFeatureSet>
+    <Project xmlns="http://www.ni.com/PlatformFramework">
+        <ProjectSettings DocumentTypeIdentifier="ProjectSettings" Id="1" Name="ZProjectSettings" PersistentDockingLayoutRule="2">
+            <p.DockingLayout />
+        </ProjectSettings>
+        <DefinitionReference Bindings="Envoy,DefinitionReference,NationalInstruments.ProjectExplorer.Modeling.ProjectDataManager,ProjectDefaultCopyPasteServiceOptOut,EmbeddedReference" DocumentTypeIdentifier="NationalInstruments.ProjectExplorer.Modeling.ProjectDataManager" Id="2" Name="ProjectExplorer">
+            <ProjectExplorer>
+                <ProjectRootItem AssociatedItemIdentifier="2" Id="3">
+                    <ProjectDataItem AssociatedItemIdentifier="9" Id="8" />
+                    <ProjectDataItem AssociatedItemIdentifier="11" Id="10" />
+                </ProjectRootItem>
+            </ProjectExplorer>
+            <DefinitionReference Bindings="Envoy,DefinitionReference,NationalInstruments.ProjectExplorer.Modeling.ProjectInformationIcon,EmbeddedReference" DocumentTypeIdentifier="NationalInstruments.ProjectExplorer.Modeling.ProjectInformationIcon" Id="7" Name="ProjectInformationIcon">
+                <ProjectInformationIcon Name="ProjectInformationIcon">
+                    <p.StoragePath>"Documentation\\Blank Project.png"</p.StoragePath>
+                </ProjectInformationIcon>
+            </DefinitionReference>
+        </DefinitionReference>
+        <Target Bindings="Envoy,DefinitionReference,DefaultTarget,EmbeddedReference,ScopingEnvoy,NameScopingEnvoy" DocumentTypeIdentifier="DefaultTarget" Id="4" Name="DefaultTarget">
+            <DefinitionReference Bindings="Envoy,DefinitionReference,GatewayDefinition,EmbeddedReference" DocumentTypeIdentifier="GatewayDefinition" Id="5" Name="Gateway" Reparentable="False">
+                <GatewayDefinition IPAddress="localhost" Name="Gateway" xmlns="http://www.ni.com/UIManager.Design" />
+            </DefinitionReference>
+            <DefinitionReference Bindings="Envoy,DefinitionReference,SdfFilePath,EmbeddedReference" DocumentTypeIdentifier="SdfFilePath" Id="6" Name="SdfPath" Reparentable="False">
+                <SdfFilePath Name="SdfPath" SdfPath="Closed Loop.nivssdf" xmlns="http://www.ni.com/UIManager.Design" />
+            </DefinitionReference>
+            <SourceFileReference Bindings="Envoy,DefinitionReference,NationalInstruments.VeriStand.UIManager.Screen.SourceModel.ScreenModel,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.VeriStand.UIManager.Screen.SourceModel.ScreenModel" Id="9" Name="Main\.nivsscr" StoragePath="Main.nivsscr" />
+            <SourceFileReference Bindings="Envoy,DefinitionReference,NationalInstruments.VeriStand.UIManager.Screen.SourceModel.ScreenModel,SourceFileReference" DocumentTypeIdentifier="NationalInstruments.VeriStand.UIManager.Screen.SourceModel.ScreenModel" Id="11" Name="Knock\.nivsscr" StoragePath="Knock.nivsscr" />
+            <DefaultTarget Name="DefaultTarget" />
+        </Target>
+    </Project>
+    <ProjectInformation ProjectIconBackgroundFilename="{D7561717-D660-4FB3-8F22-FA34432FBB21}" ProjectIconFilename="Blank Project.png" Title="ECU HIL" xmlns="http://www.ni.com/PlatformFramework">
+        <p.Description></p.Description>
+    </ProjectInformation>
+</SourceFile>

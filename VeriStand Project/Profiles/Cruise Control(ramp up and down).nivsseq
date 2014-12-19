@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RealTimeSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Description>Take the car to about 75 mph</Description>
+	<FileFormatVersion Major="2012" Minor="0" Fix="0" Build="0" />
+	<Version Major="1" Minor="0" Fix="0" Build="11" />
+	<References>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\Wait.nivsseq</Path>
+			<Alias>Wait</Alias>
+		</Reference>
+	</References>
+	<Variables>
+		<ReturnType>
+			<Identifier>Pass</Identifier>
+			<DefaultValue xsi:type="BooleanValue">
+				<Value>true</Value>
+			</DefaultValue>
+		</ReturnType>
+		<Parameters>
+			<ParameterDeclaration>
+				<Description>Cruise Control Enable</Description>
+				<Identifier>Cruise_Control_Enable</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Enable" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Control Accel</Description>
+				<Identifier>Cruise_Control_Accel</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Accel" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Control Decel</Description>
+				<Identifier>Cruise_Control_Decel</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Decel" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Control Set</Description>
+				<Identifier>Cruise_Control_Set</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Set" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Active</Description>
+				<Identifier>Cruise_Active</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Active" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Set Speed</Description>
+				<Identifier>Cruise_Set_Speed</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Set Speed" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Vehicle Speed</Description>
+				<Identifier>Vehicle_Speed</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/State/Vehicle Speed (kmph)" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Gas Pedal</Description>
+				<Identifier>Gas_Pedal</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Gas" />
+			</ParameterDeclaration>
+		</Parameters>
+		<LocalVariables>
+			<LocalDeclaration>
+				<Identifier>InitSpeed</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+			<LocalDeclaration>
+				<Identifier>Error</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+			</LocalDeclaration>
+		</LocalVariables>
+	</Variables>
+	<Code>
+		<Setup>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>InitSpeed=Vehicle_Speed</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Gas_Pedal=0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Enable=true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Set=true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Wait(1)</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Set=false</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Wait(5)</ExpressionString>
+				</Statement>
+			</Body>
+		</Setup>
+		<Main>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Error=abs(Vehicle_Speed-Cruise_Set_Speed)</ExpressionString>
+				</Statement>
+				<Statement xsi:type="IfElse">
+					<Description>Is car started?</Description>
+					<TestExpression>
+						<ExpressionString>Error&gt;5</ExpressionString>
+					</TestExpression>
+					<IfTrue>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Pass=false</ExpressionString>
+						</Statement>
+					</IfTrue>
+					<IfFalse />
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Accel = true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="WhileLoop">
+					<Description>Ramp up</Description>
+					<AutoYield>true</AutoYield>
+					<Body>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Error=abs(Vehicle_Speed-Cruise_Set_Speed)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Wait(0.5)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="IfElse">
+							<Description>Is car started?</Description>
+							<TestExpression>
+								<ExpressionString>Error&gt;5</ExpressionString>
+							</TestExpression>
+							<IfTrue>
+								<Statement xsi:type="Expression">
+									<ExpressionString>Pass=false</ExpressionString>
+								</Statement>
+							</IfTrue>
+							<IfFalse />
+						</Statement>
+					</Body>
+					<LoopTest>
+						<ExpressionString>Cruise_Set_Speed &lt; (InitSpeed+15)</ExpressionString>
+					</LoopTest>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Accel = false</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Decel = true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="WhileLoop">
+					<Description>Ramp down</Description>
+					<AutoYield>true</AutoYield>
+					<Body>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Error=abs(Vehicle_Speed-Cruise_Set_Speed)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Wait(0.5)</ExpressionString>
+						</Statement>
+						<Statement xsi:type="IfElse">
+							<Description>Is car started?</Description>
+							<TestExpression>
+								<ExpressionString>Error&gt;5</ExpressionString>
+							</TestExpression>
+							<IfTrue>
+								<Statement xsi:type="Expression">
+									<ExpressionString>Pass=false</ExpressionString>
+								</Statement>
+							</IfTrue>
+							<IfFalse />
+						</Statement>
+					</Body>
+					<LoopTest>
+						<ExpressionString>Cruise_Set_Speed &gt; (InitSpeed-15)</ExpressionString>
+					</LoopTest>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Decel = false</ExpressionString>
+				</Statement>
+			</Body>
+		</Main>
+		<CleanUp>
+			<Body />
+		</CleanUp>
+	</Code>
+</RealTimeSequence>

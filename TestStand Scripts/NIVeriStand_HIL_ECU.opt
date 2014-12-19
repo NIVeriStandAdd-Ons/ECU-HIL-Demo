@@ -1,0 +1,21 @@
+[DEF, %OBJROOT]
+PersistedBreakpointArray = Objs
+PersistedWatchpointArray = Objs
+
+[DEF, PersistedBreakpointArray]
+%NAME = ""
+
+[__Header__]
+ProductName = "TestStand"
+ProductVersion = 5.1.0.226
+CompatibleProdVersion = 5.1.0.0
+Version = 755
+Type = "TEPersisted"
+Path = "C:\\Projects\\HIL ECU demo\\TestStand Scripts\\NIVeriStand_HIL_ECU.opt"
+ProductVersionString = "2013 (5.1.0.226)"
+Description = ""
+CharEncoding = ""
+
+[DEF, PersistedWatchpointArray]
+%NAME = ""
+

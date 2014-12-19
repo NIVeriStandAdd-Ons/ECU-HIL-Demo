@@ -1,0 +1,5700 @@
+Library {
+  Name			  "hil14_mdl_lib"
+  Version		  7.0
+  MdlSubVersion		  0
+  SavedCharacterEncoding  "windows-1252"
+  LibraryType		  "BlockLibrary"
+  SaveDefaultBlockParams  on
+  SampleTimeColors	  off
+  LibraryLinkDisplay	  "none"
+  WideLines		  off
+  ShowLineDimensions	  off
+  ShowPortDataTypes	  off
+  ShowLoopsOnError	  on
+  IgnoreBidirectionalLines off
+  ShowStorageClass	  off
+  ShowTestPointIcons	  on
+  ShowViewerIcons	  on
+  SortedOrder		  off
+  ExecutionContextIcon	  off
+  ShowLinearizationAnnotations on
+  ScopeRefreshTime	  0.035000
+  OverrideScopeRefreshTime on
+  DisableAllScopes	  off
+  BlockNameDataTip	  off
+  BlockParametersDataTip  off
+  BlockDescriptionStringDataTip	off
+  ToolBar		  on
+  StatusBar		  on
+  BrowserShowLibraryLinks off
+  BrowserLookUnderMasks	  off
+  Created		  "Mon Aug 25 09:02:25 2014"
+  Creator		  "Eric Bradley"
+  UpdateHistory		  "UpdateHistoryNever"
+  ModifiedByFormat	  "%<Auto>"
+  LastModifiedBy	  "Eric Bradley"
+  ModifiedDateFormat	  "%<Auto>"
+  LastModifiedDate	  "Thu Sep 18 16:03:46 2014"
+  RTWModifiedTimeStamp	  0
+  ModelVersionFormat	  "1.%<AutoIncrement:18>"
+  ConfigurationManager	  "None"
+  SimulationMode	  "normal"
+  LinearizationMsg	  "none"
+  Profile		  off
+  ParamWorkspaceSource	  "MATLABWorkspace"
+  CovSaveName		  "covdata"
+  CovMetricSettings	  "dw"
+  CovNameIncrementing	  off
+  CovHtmlReporting	  on
+  covSaveCumulativeToWorkspaceVar on
+  CovSaveSingleToWorkspaceVar on
+  CovCumulativeReport	  off
+  CovReportOnPause	  on
+  ExtModeBatchMode	  off
+  ExtModeEnableFloating	  on
+  ExtModeTrigType	  "manual"
+  ExtModeTrigMode	  "normal"
+  ExtModeTrigPort	  "1"
+  ExtModeTrigElement	  "any"
+  ExtModeTrigDuration	  1000
+  ExtModeTrigDurationFloating "auto"
+  ExtModeTrigHoldOff	  0
+  ExtModeTrigDelay	  0
+  ExtModeTrigDirection	  "rising"
+  ExtModeTrigLevel	  0
+  ExtModeArchiveMode	  "off"
+  ExtModeAutoIncOneShot	  off
+  ExtModeIncDirWhenArm	  off
+  ExtModeAddSuffixToVar	  off
+  ExtModeWriteAllDataToWs off
+  ExtModeArmWhenConnect	  on
+  ExtModeSkipDownloadWhenConnect off
+  ExtModeLogAll		  on
+  ExtModeAutoUpdateStatusClock on
+  ShowModelReferenceBlockVersion off
+  ShowModelReferenceBlockIO off
+  BlockDefaults {
+    Orientation		    "right"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    NamePlacement	    "normal"
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    ShowName		    on
+  }
+  BlockParameterDefaults {
+    Block {
+      BlockType		      Demux
+      Outputs		      "4"
+      DisplayOption	      "none"
+      BusSelectionMode	      off
+    }
+    Block {
+      BlockType		      Display
+      Format		      "short"
+      Decimation	      "10"
+      Floating		      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Fcn
+      Expr		      "sin(u[1])"
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Gain
+      Gain		      "1"
+      Multiplication	      "Element-wise(K.*u)"
+      ParamMin		      "[]"
+      ParamMax		      "[]"
+      ParameterDataTypeMode   "Same as input"
+      ParameterDataType	      "fixdt(1,16,0)"
+      ParameterScalingMode    "Best Precision: Matrix-wise"
+      ParameterScaling	      "[]"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Inport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      LatchByDelayingOutsideSignal off
+      LatchByCopyingInsideSignal off
+      Interpolate	      on
+    }
+    Block {
+      BlockType		      Integrator
+      ExternalReset	      "none"
+      InitialConditionSource  "internal"
+      InitialCondition	      "0"
+      LimitOutput	      off
+      UpperSaturationLimit    "inf"
+      LowerSaturationLimit    "-inf"
+      ShowSaturationPort      off
+      ShowStatePort	      off
+      AbsoluteTolerance	      "auto"
+      IgnoreLimit	      off
+      ZeroCross		      on
+      ContinuousStateAttributes	"''"
+    }
+    Block {
+      BlockType		      Lookup2D
+      RowIndex		      "[0 1]"
+      ColumnIndex	      "[0 1]"
+      Table		      "[0 0;0 0]"
+      LookUpMeth	      "Interpolation-Extrapolation"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+      LUTDesignTableMode      "Redesign Table"
+      LUTDesignDataSource     "Block Dialog"
+      LUTDesignFunctionName   "sqrt(x)"
+      LUTDesignUseExistingBP  on
+      LUTDesignRelError	      "0.01"
+      LUTDesignAbsError	      "1e-6"
+    }
+    Block {
+      BlockType		      Outport
+      Port		      "1"
+      UseBusObject	      off
+      BusObject		      "BusObject"
+      BusOutputAsStruct	      off
+      PortDimensions	      "-1"
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      DataType		      "auto"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      SignalType	      "auto"
+      SamplingMode	      "auto"
+      OutputWhenDisabled      "held"
+      InitialOutput	      "[]"
+    }
+    Block {
+      BlockType		      Product
+      Inputs		      "2"
+      Multiplication	      "Element-wise(.*)"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Zero"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Reference
+    }
+    Block {
+      BlockType		      Scope
+      ModelBased	      off
+      TickLabels	      "OneTimeTick"
+      ZoomMode		      "on"
+      Grid		      "on"
+      TimeRange		      "auto"
+      YMin		      "-5"
+      YMax		      "5"
+      SaveToWorkspace	      off
+      SaveName		      "ScopeData"
+      LimitDataPoints	      on
+      MaxDataPoints	      "5000"
+      Decimation	      "1"
+      SampleInput	      off
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      "S-Function"
+      FunctionName	      "system"
+      SFunctionModules	      "''"
+      PortCounts	      "[]"
+    }
+    Block {
+      BlockType		      SubSystem
+      ShowPortLabels	      "FromPortIcon"
+      Permissions	      "ReadWrite"
+      PermitHierarchicalResolution "All"
+      TreatAsAtomicUnit	      off
+      SystemSampleTime	      "-1"
+      RTWFcnNameOpts	      "Auto"
+      RTWFileNameOpts	      "Auto"
+      RTWMemSecFuncInitTerm   "Inherit from model"
+      RTWMemSecFuncExecute    "Inherit from model"
+      RTWMemSecDataConstants  "Inherit from model"
+      RTWMemSecDataInternal   "Inherit from model"
+      RTWMemSecDataParameters "Inherit from model"
+      SimViewingDevice	      off
+      DataTypeOverride	      "UseLocalSettings"
+      MinMaxOverflowLogging   "UseLocalSettings"
+    }
+    Block {
+      BlockType		      Sum
+      IconShape		      "rectangular"
+      Inputs		      "++"
+      CollapseMode	      "All dimensions"
+      CollapseDim	      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as first input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Switch
+      Criteria		      "u2 >= Threshold"
+      Threshold		      "0"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      VariableName	      "simulink_output"
+      MaxDataPoints	      "1000"
+      Decimation	      "1"
+      SampleTime	      "0"
+      FixptAsFi		      off
+    }
+    Block {
+      BlockType		      TriggerPort
+      TriggerType	      "rising"
+      StatesWhenEnabling      "inherit"
+      ShowOutputPort	      off
+      OutputDataType	      "auto"
+      SampleTimeType	      "triggered"
+      SampleTime	      "1"
+      ZeroCross		      on
+    }
+    Block {
+      BlockType		      Abs
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+    }
+    Block {
+      BlockType		      Constant
+      Value		      "1"
+      VectorParams1D	      on
+      SamplingMode	      "Sample based"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit from 'Constant value'"
+      OutDataType	      "fixdt(1,16,0)"
+      ConRadixGroup	      "Use specified scaling"
+      OutScaling	      "[]"
+      SampleTime	      "inf"
+      FramePeriod	      "inf"
+    }
+    Block {
+      BlockType		      Lookup
+      InputValues	      "[-4:5]"
+      Table		      " rand(1,10)-0.5"
+      LookUpMeth	      "Interpolation-Extrapolation"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      SampleTime	      "-1"
+      LUTDesignTableMode      "Redesign Table"
+      LUTDesignDataSource     "Block Dialog"
+      LUTDesignFunctionName   "sqrt(x)"
+      LUTDesignUseExistingBP  on
+      LUTDesignRelError	      "0.01"
+      LUTDesignAbsError	      "1e-6"
+    }
+    Block {
+      BlockType		      MinMax
+      Function		      "min"
+      Inputs		      "1"
+      InputSameDT	      on
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Inherit via internal rule"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+      SaturateOnIntegerOverflow	on
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      Saturate
+      UpperLimit	      "0.5"
+      LowerLimit	      "-0.5"
+      LinearizeAsGain	      on
+      ZeroCross		      on
+      SampleTime	      "-1"
+      OutMin		      "[]"
+      OutMax		      "[]"
+      OutDataTypeMode	      "Same as input"
+      OutDataType	      "fixdt(1,16,0)"
+      OutScaling	      "[]"
+      LockScale		      off
+      RndMeth		      "Floor"
+    }
+    Block {
+      BlockType		      Signum
+      ZeroCross		      on
+      SampleTime	      "-1"
+    }
+  }
+  AnnotationDefaults {
+    HorizontalAlignment	    "center"
+    VerticalAlignment	    "middle"
+    ForegroundColor	    "black"
+    BackgroundColor	    "white"
+    DropShadow		    off
+    FontName		    "Arial"
+    FontSize		    10
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+    UseDisplayTextAsClickCallback off
+  }
+  LineDefaults {
+    FontName		    "Arial"
+    FontSize		    9
+    FontWeight		    "normal"
+    FontAngle		    "normal"
+  }
+  System {
+    Name		    "hil14_mdl_lib"
+    Location		    [103, 111, 1493, 1268]
+    Open		    on
+    ModelBrowserVisibility  off
+    ModelBrowserWidth	    200
+    ScreenColor		    "gray"
+    PaperOrientation	    "landscape"
+    PaperPositionMode	    "auto"
+    PaperType		    "usletter"
+    PaperUnits		    "inches"
+    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+    TiledPageScale	    1
+    ShowPageBoundaries	    off
+    ZoomFactor		    "100"
+    ReportName		    "simulink-default.rpt"
+    Block {
+      BlockType		      SubSystem
+      Name		      "Engine Model"
+      Ports		      [5, 7]
+      Position		      [55, 54, 745, 386]
+      OpenFcn		      "open_system(gcb,'Force')"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskPromptString	      "Image"
+      MaskStyleString	      "edit"
+      MaskTunableValueString  "off"
+      MaskEnableString	      "on"
+      MaskVisibilityString    "on"
+      MaskToolTipString	      "on"
+      MaskVariables	      "iname=@1;"
+      MaskInitialization      "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;\n\nscale = 0.125;"
+      MaskDisplay	      "image(img, [0.5-ii.Width/wd*scale/2, 0.5-ii.Height/ht*scale/2, ii.Width/wd*scale,ii.Height/ht*scale]);\n\n\n\n"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "normalized"
+      MaskValueString	      "'engine.jpg'"
+      System {
+	Name			"Engine Model"
+	Location		[837, 230, 2622, 1193]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "MANF::Throttle Postion (deg)"
+	  Position		  [75, 158, 105, 172]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "COMB::Spark Advance (dbtdc)"
+	  Position		  [620, 538, 650, 552]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "6"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "TRAN::impeller Torque (Nm)"
+	  Position		  [1200, 578, 1230, 592]
+	  BackgroundColor	  "orange"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "SHAFT::Starter Torque (Nm)"
+	  Position		  [1200, 658, 1230, 672]
+	  BackgroundColor	  "orange"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "INJ::FPCycle/cyl (g)"
+	  Position		  [620, 618, 650, 632]
+	  BackgroundColor	  "orange"
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Combustion Torque Model"
+	  Ports			  [4, 2]
+	  Position		  [720, 427, 1040, 743]
+	  OpenFcn		  "open_system(gcb,'Force')"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskPromptString	  "Image"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "off"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "on"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "iname=@1;"
+	  MaskInitialization	  "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;"
+	  MaskDisplay		  "image(img, [0.5-ii.Width/wd*0.125/2, 0.5-ii.Height/ht*0.125/2, ii.Width/wd*0.125,ii.Height/ht*0.125]);\n\n\n\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "'cylinder.jpg'"
+	  System {
+	    Name		    "Combustion Torque Model"
+	    Location		    [676, 236, 2137, 1013]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "APC (g)"
+	      Position		      [230, 143, 260, 157]
+	      BackgroundColor	      "orange"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Spark Advance (DBTDC)"
+	      Position		      [85, 398, 115, 412]
+	      BackgroundColor	      "orange"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "FPC (g/cyl)"
+	      Position		      [400, 318, 430, 332]
+	      BackgroundColor	      "orange"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      Port {
+		PortNumber		1
+		Name			"fuel mass (g)"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "N (rad/s)"
+	      Position		      [85, 493, 115, 507]
+	      BackgroundColor	      "orange"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      PortDimensions	      "1"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Avg Spark Eff"
+	      Position		      [550, 396, 620, 444]
+	      BackgroundColor	      "yellow"
+	      Gain		      "1/6"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Scope
+	      Name		      "ComEff"
+	      Ports		      [1]
+	      Position		      [700, 324, 730, 356]
+	      Floating		      off
+	      Location		      [188, 390, 512, 629]
+	      Open		      off
+	      NumInputPorts	      "1"
+	      ZoomMode		      "yonly"
+	      List {
+		ListType		AxesTitles
+		axes1			"%<SignalLabel>"
+	      }
+	      SaveName		      "ScopeData10"
+	      DataFormat	      "StructureWithTime"
+	      SampleTime	      "0"
+	    }
+	    Block {
+	      BlockType		      Scope
+	      Name		      "FPC(g)"
+	      Ports		      [1]
+	      Position		      [665, 244, 695, 276]
+	      Floating		      off
+	      Location		      [188, 390, 512, 629]
+	      Open		      off
+	      NumInputPorts	      "1"
+	      ZoomMode		      "yonly"
+	      List {
+		ListType		AxesTitles
+		axes1			"%<SignalLabel>"
+	      }
+	      SaveName		      "ScopeData7"
+	      DataFormat	      "StructureWithTime"
+	      SampleTime	      "0"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product"
+	      Ports		      [2, 1]
+	      Position		      [690, 179, 710, 226]
+	      BackgroundColor	      "yellow"
+	      Inputs		      "*/"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      RndMeth		      "Floor"
+	    }
+	    Block {
+	      BlockType		      Product
+	      Name		      "Product1"
+	      Ports		      [3, 1]
+	      Position		      [705, 396, 725, 444]
+	      BackgroundColor	      "yellow"
+	      Inputs		      "3"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      RndMeth		      "Floor"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Stoichiometric\nFuel"
+	      Position		      [485, 126, 555, 174]
+	      BackgroundColor	      "yellow"
+	      Gain		      "1/14.6"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum of\nElements"
+	      Ports		      [1, 1]
+	      Position		      [495, 405, 525, 435]
+	      BackgroundColor	      "yellow"
+	      Inputs		      "+"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^-10"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Title Block"
+	      Ports		      []
+	      Position		      [45, 32, 1044, 101]
+	      ShowName		      off
+	      SourceBlock	      "ni_annotations_lib/Title Block"
+	      SourceType	      "Unknown"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      tx_title		      "get_param(gcs,'Name')"
+	    }
+	    Block {
+	      BlockType		      Lookup2D
+	      Name		      "combustion\nefficiency"
+	      Position		      [405, 392, 460, 443]
+	      BackgroundColor	      "yellow"
+	      RowIndex		      "cylinder.ce.spark_timing"
+	      ColumnIndex	      "cylinder.ce.rpm*pi/30"
+	      Table		      "cylinder.ce.table"
+	      LookUpMeth	      "Interpolation-Use End Values"
+	      InputSameDT	      off
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Fcn
+	      Name		      "ideal\nchem->mech\nconversion"
+	      Position		      [590, 310, 620, 340]
+	      BackgroundColor	      "yellow"
+	      Expr		      "u[1]*1e-3*fuel.LHV/(4*pi)"
+	    }
+	    Block {
+	      BlockType		      Constant
+	      Name		      "thermodynamic\nefficiency"
+	      Position		      [590, 490, 620, 520]
+	      BackgroundColor	      "yellow"
+	      Value		      "0.32"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Shaft Torque (Nm)"
+	      Position		      [800, 413, 830, 427]
+	      BackgroundColor	      "lightBlue"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Lambda (1=Stocih, <1=Rich)"
+	      Position		      [815, 198, 845, 212]
+	      BackgroundColor	      "lightBlue"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Avg Spark Eff"
+	      SrcPort		      1
+	      Points		      [40, 0]
+	      Branch {
+		Points			[0, -80]
+		DstBlock		"ComEff"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Product1"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Sum of\nElements"
+	      SrcPort		      1
+	      DstBlock		      "Avg Spark Eff"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Product"
+	      SrcPort		      1
+	      DstBlock		      "Lambda (1=Stocih, <1=Rich)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Stoichiometric\nFuel"
+	      SrcPort		      1
+	      Points		      [115, 0]
+	      DstBlock		      "Product"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "APC (g)"
+	      SrcPort		      1
+	      DstBlock		      "Stoichiometric\nFuel"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Product1"
+	      SrcPort		      1
+	      DstBlock		      "Shaft Torque (Nm)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "thermodynamic\nefficiency"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, -70]
+	      DstBlock		      "Product1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "ideal\nchem->mech\nconversion"
+	      SrcPort		      1
+	      Points		      [10, 0; 0, 80]
+	      DstBlock		      "Product1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "combustion\nefficiency"
+	      SrcPort		      1
+	      DstBlock		      "Sum of\nElements"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "fuel mass (g)"
+	      Labels		      [1, 1]
+	      SrcBlock		      "FPC (g/cyl)"
+	      SrcPort		      1
+	      Points		      [90, 0]
+	      Branch {
+		Points			[0, -65]
+		Branch {
+		  Points		  [0, -45]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Branch {
+		  DstBlock		  "FPC(g)"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		DstBlock		"ideal\nchem->mech\nconversion"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Spark Advance (DBTDC)"
+	      SrcPort		      1
+	      DstBlock		      "combustion\nefficiency"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "N (rad/s)"
+	      SrcPort		      1
+	      Points		      [125, 0; 0, -70]
+	      DstBlock		      "combustion\nefficiency"
+	      DstPort		      2
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "ENV::Baro (kPa)"
+	  Position		  [150, 255, 215, 285]
+	  BackgroundColor	  "gray"
+	  Value			  "1.0133"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "ENV::IMT (C)"
+	  Position		  [155, 360, 220, 390]
+	  BackgroundColor	  "gray"
+	  Value			  "15"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Engine Speed"
+	  Ports			  [3, 1]
+	  Position		  [1270, 465, 1645, 705]
+	  OpenFcn		  "open_system(gcb,'Force')"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskPromptString	  "Image"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "off"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "on"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "iname=@1;"
+	  MaskInitialization	  "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;"
+	  MaskDisplay		  "image(img, [0.5-ii.Width/wd*0.5/2, 0.5-ii.Height/ht*0.5/2, ii.Width/wd*0.5,ii.Height/ht*0.5]);\n\n\n\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "'piston.jpg'"
+	  System {
+	    Name		    "Engine Speed"
+	    Location		    [871, 185, 2030, 720]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Combustion Torque (Nm)"
+	      Position		      [135, 183, 165, 197]
+	      BackgroundColor	      "orange"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Load Torque (Nm)"
+	      Position		      [135, 228, 165, 242]
+	      BackgroundColor	      "orange"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Starter Torque (Nm)"
+	      Position		      [135, 128, 165, 142]
+	      BackgroundColor	      "orange"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Bare Engine Friction"
+	      Position		      [425, 263, 475, 317]
+	      Orientation	      "left"
+	      BackgroundColor	      "yellow"
+	      Gain		      "0.25"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Gain
+	      Name		      "Bare Engine Inertia"
+	      Position		      [400, 163, 450, 217]
+	      BackgroundColor	      "yellow"
+	      Gain		      "1/10"
+	      ParameterDataTypeMode   "Inherit via internal rule"
+	      ParameterDataType	      "sfix(16)"
+	      ParameterScaling	      "2^0"
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Integrator
+	      Name		      "Integrator"
+	      Ports		      [1, 1]
+	      Position		      [495, 175, 525, 205]
+	      BackgroundColor	      "yellow"
+	      InitialCondition	      "600*pi/30"
+	      LimitOutput	      on
+	      UpperSaturationLimit    "1000"
+	      LowerSaturationLimit    "0"
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum"
+	      Ports		      [2, 1]
+	      Position		      [355, 180, 375, 200]
+	      BackgroundColor	      "yellow"
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "|+-"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Sum
+	      Name		      "Sum1"
+	      Ports		      [3, 1]
+	      Position		      [250, 180, 270, 200]
+	      BackgroundColor	      "yellow"
+	      ShowName		      off
+	      IconShape		      "round"
+	      Inputs		      "++-"
+	      CollapseMode	      "All dimensions"
+	      InputSameDT	      off
+	      OutDataTypeMode	      "Inherit via internal rule"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Title Block"
+	      Ports		      []
+	      Position		      [45, 32, 1044, 101]
+	      ShowName		      off
+	      SourceBlock	      "ni_annotations_lib/Title Block"
+	      SourceType	      "Unknown"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      tx_title		      "get_param(gcs,'Name')"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Engine Speeed (rad/sec)"
+	      Position		      [655, 183, 685, 197]
+	      BackgroundColor	      "lightBlue"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Starter Torque (Nm)"
+	      SrcPort		      1
+	      Points		      [90, 0]
+	      DstBlock		      "Sum1"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum1"
+	      SrcPort		      1
+	      DstBlock		      "Sum"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Combustion Torque (Nm)"
+	      SrcPort		      1
+	      DstBlock		      "Sum1"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Load Torque (Nm)"
+	      SrcPort		      1
+	      Points		      [90, 0]
+	      DstBlock		      "Sum1"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "Bare Engine Friction"
+	      SrcPort		      1
+	      Points		      [-55, 0]
+	      DstBlock		      "Sum"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Integrator"
+	      SrcPort		      1
+	      Points		      [25, 0]
+	      Branch {
+		Points			[0, 100]
+		DstBlock		"Bare Engine Friction"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"Engine Speeed (rad/sec)"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Bare Engine Inertia"
+	      SrcPort		      1
+	      DstBlock		      "Integrator"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Sum"
+	      SrcPort		      1
+	      DstBlock		      "Bare Engine Inertia"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Manifod Model"
+	  Ports			  [4, 3]
+	  Position		  [245, 111, 565, 534]
+	  OpenFcn		  "open_system(gcb,'Force')"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskPromptString	  "Image"
+	  MaskStyleString	  "edit"
+	  MaskTunableValueString  "off"
+	  MaskEnableString	  "on"
+	  MaskVisibilityString	  "on"
+	  MaskToolTipString	  "on"
+	  MaskVariables		  "iname=@1;"
+	  MaskInitialization	  "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;"
+	  MaskDisplay		  "image(img, [0.5-ii.Width/wd*0.25/2, 0.5-ii.Height/ht*0.25/2, ii.Width/wd*0.25,ii.Height/ht*0.25]);\n\n\n\n"
+	  MaskIconFrame		  on
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "normalized"
+	  MaskValueString	  "'intake_manifold.jpg'"
+	  System {
+	    Name		    "Manifod Model"
+	    Location		    [781, 649, 1940, 1184]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "TPS (deg)"
+	      Position		      [85, 193, 115, 207]
+	      BackgroundColor	      "orange"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Baro (bar)"
+	      Position		      [85, 223, 115, 237]
+	      BackgroundColor	      "orange"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "IMT (C)"
+	      Position		      [85, 293, 115, 307]
+	      BackgroundColor	      "orange"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "N (rad/sec)"
+	      Position		      [85, 253, 115, 267]
+	      BackgroundColor	      "orange"
+	      Port		      "4"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Intake Manifold Flow"
+	      Ports		      [3, 3]
+	      Position		      [590, 179, 825, 291]
+	      BackgroundColor	      "cyan"
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Intake Manifold Flow"
+		Location		[1113, 225, 2183, 635]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "mdot Input \n(g/s)"
+		  Position		  [50, 165, 70, 185]
+		  BackgroundColor	  "orange"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "N (rad/sec)"
+		  Position		  [50, 245, 70, 265]
+		  BackgroundColor	  "orange"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "IMT (C)"
+		  Position		  [270, 228, 300, 242]
+		  BackgroundColor	  "orange"
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "1/(4*pi)"
+		  Position		  [560, 235, 600, 275]
+		  BackgroundColor	  "yellow"
+		  Gain			  "1/(4*pi)"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  Port {
+		    PortNumber		    1
+		    Name		    "cycles/sec"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Display
+		  Name			  "Display1"
+		  Ports			  [1]
+		  Position		  [635, 305, 725, 335]
+		  Orientation		  "left"
+		  Decimation		  "1"
+		  Lockdown		  off
+		}
+		Block {
+		  BlockType		  Display
+		  Name			  "Display2"
+		  Ports			  [1]
+		  Position		  [15, 115, 105, 145]
+		  Orientation		  "left"
+		  Decimation		  "1"
+		  Lockdown		  off
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "ENVNG::Displacement"
+		  Position		  [310, 281, 440, 309]
+		  BackgroundColor	  "gray"
+		  Value			  "cylinder.V/1000*6"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  SubSystem
+		  Name			  "Intake Density"
+		  Ports			  [2, 1]
+		  Position		  [330, 124, 430, 166]
+		  BackgroundColor	  "cyan"
+		  MinAlgLoopOccurrences	  off
+		  RTWSystemCode		  "Auto"
+		  FunctionWithSeparateData off
+		  System {
+		    Name		    "Intake Density"
+		    Location		    [631, 80, 1554, 549]
+		    Open		    off
+		    ModelBrowserVisibility  off
+		    ModelBrowserWidth	    200
+		    ScreenColor		    "white"
+		    PaperOrientation	    "landscape"
+		    PaperPositionMode	    "auto"
+		    PaperType		    "usletter"
+		    PaperUnits		    "inches"
+		    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+		    TiledPageScale	    1
+		    ShowPageBoundaries	    off
+		    ZoomFactor		    "100"
+		    Block {
+		    BlockType		    Inport
+		    Name		    "IMP [Bar]"
+		    Position		    [235, 153, 265, 167]
+		    BackgroundColor	    "orange"
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    Inport
+		    Name		    "IMT [C]"
+		    Position		    [235, 193, 265, 207]
+		    BackgroundColor	    "orange"
+		    Port		    "2"
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    Gain
+		    Name		    "Bar to Pascals"
+		    Position		    [335, 147, 425, 173]
+		    BackgroundColor	    "yellow"
+		    Gain		    "100000"
+		    ParameterDataTypeMode   "Inherit via internal rule"
+		    ParameterDataType	    "sfix(16)"
+		    ParameterScaling	    "2^0"
+		    OutDataTypeMode	    "Inherit via internal rule"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant"
+		    Position		    [350, 227, 510, 253]
+		    BackgroundColor	    "[0.752941, 0.752941, 0.752941]"
+		    ShowName		    off
+		    Value		    "287.05"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    Constant
+		    Name		    "Constant1"
+		    Position		    [145, 242, 305, 268]
+		    BackgroundColor	    "[0.752941, 0.752941, 0.752941]"
+		    ShowName		    off
+		    Value		    "273"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Block {
+		    BlockType		    Display
+		    Name		    "Display1"
+		    Ports		    [1]
+		    Position		    [450, 310, 540, 340]
+		    Orientation		    "left"
+		    Decimation		    "1"
+		    Lockdown		    off
+		    }
+		    Block {
+		    BlockType		    Product
+		    Name		    "Product"
+		    Ports		    [3, 1]
+		    Position		    [550, 141, 585, 259]
+		    BackgroundColor	    "yellow"
+		    ShowName		    off
+		    Inputs		    "*//"
+		    CollapseMode	    "All dimensions"
+		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Sum
+		    Name		    "Sum"
+		    Ports		    [2, 1]
+		    Position		    [305, 190, 325, 210]
+		    BackgroundColor	    "yellow"
+		    ShowName		    off
+		    IconShape		    "round"
+		    Inputs		    "|++"
+		    CollapseMode	    "All dimensions"
+		    InputSameDT		    off
+		    OutDataTypeMode	    "Inherit via internal rule"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    SaturateOnIntegerOverflow off
+		    }
+		    Block {
+		    BlockType		    Reference
+		    Name		    "Title Block"
+		    Ports		    []
+		    Position		    [15, 37, 1014, 106]
+		    ShowName		    off
+		    SourceBlock		    "ni_annotations_lib/Title Block"
+		    SourceType		    "Unknown"
+		    ShowPortLabels	    "FromPortIcon"
+		    SystemSampleTime	    "-1"
+		    FunctionWithSeparateData "off"
+		    RTWMemSecFuncInitTerm   "Inherit from model"
+		    RTWMemSecFuncExecute    "Inherit from model"
+		    RTWMemSecDataConstants  "Inherit from model"
+		    RTWMemSecDataInternal   "Inherit from model"
+		    RTWMemSecDataParameters "Inherit from model"
+		    tx_title		    "get_param(gcs,'Name')"
+		    }
+		    Block {
+		    BlockType		    Outport
+		    Name		    "Intake Density [Kg/m^3]"
+		    Position		    [685, 193, 715, 207]
+		    BackgroundColor	    "lightBlue"
+		    IconDisplay		    "Port number"
+		    OutDataType		    "sfix(16)"
+		    OutScaling		    "2^0"
+		    }
+		    Line {
+		    SrcBlock		    "Bar to Pascals"
+		    SrcPort		    1
+		    DstBlock		    "Product"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Constant"
+		    SrcPort		    1
+		    DstBlock		    "Product"
+		    DstPort		    3
+		    }
+		    Line {
+		    SrcBlock		    "IMT [C]"
+		    SrcPort		    1
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Constant1"
+		    SrcPort		    1
+		    Points		    [5, 0]
+		    DstBlock		    "Sum"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "Sum"
+		    SrcPort		    1
+		    DstBlock		    "Product"
+		    DstPort		    2
+		    }
+		    Line {
+		    SrcBlock		    "IMP [Bar]"
+		    SrcPort		    1
+		    DstBlock		    "Bar to Pascals"
+		    DstPort		    1
+		    }
+		    Line {
+		    SrcBlock		    "Product"
+		    SrcPort		    1
+		    Points		    [20, 0]
+		    Branch {
+		    Points		    [0, 125]
+		    DstBlock		    "Display1"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Intake Density [Kg/m^3]"
+		    DstPort		    1
+		    }
+		    }
+		  }
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [670, 205, 715, 240]
+		  BackgroundColor	  "yellow"
+		  CollapseMode		  "All dimensions"
+		  InputSameDT		  off
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product1"
+		  Ports			  [3, 1]
+		  Position		  [560, 172, 605, 208]
+		  BackgroundColor	  "yellow"
+		  Inputs		  "3"
+		  CollapseMode		  "All dimensions"
+		  InputSameDT		  off
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [120, 165, 140, 185]
+		  BackgroundColor	  "yellow"
+		  ShowName		  off
+		  IconShape		  "round"
+		  Inputs		  "|+-"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "Title Block"
+		  Ports			  []
+		  Position		  [25, 12, 1024, 81]
+		  ShowName		  off
+		  SourceBlock		  "ni_annotations_lib/Title Block"
+		  SourceType		  "Unknown"
+		  ShowPortLabels	  "FromPortIcon"
+		  SystemSampleTime	  "-1"
+		  FunctionWithSeparateData "off"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
+		  tx_title		  "get_param(gcs,'Name')"
+		}
+		Block {
+		  BlockType		  ToWorkspace
+		  Name			  "To Workspace1"
+		  Position		  [240, 106, 300, 124]
+		  ShowName		  off
+		  VariableName		  "hist_mdot_diff"
+		  MaxDataPoints		  "hist_sample_size"
+		  SampleTime		  "-1"
+		  SaveFormat		  "Array"
+		}
+		Block {
+		  BlockType		  ToWorkspace
+		  Name			  "To Workspace2"
+		  Position		  [570, 121, 630, 139]
+		  ShowName		  off
+		  VariableName		  "hist_rho_g"
+		  MaxDataPoints		  "hist_sample_size"
+		  SampleTime		  "-1"
+		  SaveFormat		  "Array"
+		}
+		Block {
+		  BlockType		  ToWorkspace
+		  Name			  "To Workspace3"
+		  Position		  [475, 116, 535, 134]
+		  ShowName		  off
+		  VariableName		  "hist_rho_kg"
+		  MaxDataPoints		  "hist_sample_size"
+		  SampleTime		  "-1"
+		  SaveFormat		  "Array"
+		}
+		Block {
+		  BlockType		  ToWorkspace
+		  Name			  "To Workspace4"
+		  Position		  [745, 151, 805, 169]
+		  ShowName		  off
+		  VariableName		  "hist_ve"
+		  MaxDataPoints		  "hist_sample_size"
+		  SampleTime		  "-1"
+		  SaveFormat		  "Array"
+		}
+		Block {
+		  BlockType		  ToWorkspace
+		  Name			  "To Workspace5"
+		  Position		  [455, 86, 515, 104]
+		  ShowName		  off
+		  VariableName		  "hist_map_bar"
+		  MaxDataPoints		  "hist_sample_size"
+		  SampleTime		  "-1"
+		  SaveFormat		  "Array"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "g per kg"
+		  Position		  [475, 130, 515, 170]
+		  BackgroundColor	  "yellow"
+		  Gain			  "1000"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Gain
+		  Name			  "im.RT_over_V"
+		  Position		  [165, 155, 205, 195]
+		  BackgroundColor	  "yellow"
+		  Gain			  "im.RT_over_V"
+		  ParameterDataType	  "sfix(16)"
+		  ParameterScaling	  "2^0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Integrator
+		  Name			  "p0 = amb.p/10 bar"
+		  Ports			  [1, 1]
+		  Position		  [260, 146, 290, 204]
+		  BackgroundColor	  "yellow"
+		  InitialCondition	  "amb.p*0.99"
+		  LimitOutput		  on
+		  UpperSaturationLimit	  "0.99*amb.p"
+		  LowerSaturationLimit	  "0.001*amb.p"
+		}
+		Block {
+		  BlockType		  Lookup2D
+		  Name			  "volumetric\nefficiency"
+		  Position		  [465, 197, 520, 248]
+		  BackgroundColor	  "yellow"
+		  RowIndex		  "MDL.ENGINE.VolumetricEff.x"
+		  ColumnIndex		  "MDL.ENGINE.VolumetricEff.y"
+		  Table			  "0.7*MDL.ENGINE.VolumetricEff.v"
+		  LookUpMeth		  "Interpolation-Use End Values"
+		  InputSameDT		  off
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Manifold Pressure,\nPm (bar)"
+		  Position		  [785, 100, 805, 120]
+		  BackgroundColor	  "lightBlue"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "mdot to \nCylinder\n (g/s)"
+		  Position		  [785, 215, 805, 235]
+		  BackgroundColor	  "lightBlue"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "air mass/cycle\n(g)"
+		  Position		  [785, 180, 805, 200]
+		  BackgroundColor	  "lightBlue"
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Line {
+		  SrcBlock		  "ENVNG::Displacement"
+		  SrcPort		  1
+		  Points		  [95, 0; 0, -95]
+		  DstBlock		  "Product1"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "g per kg"
+		  SrcPort		  1
+		  Points		  [5, 0]
+		  Branch {
+		    Points		    [0, -20]
+		    DstBlock		    "To Workspace2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 30]
+		    DstBlock		    "Product1"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Product1"
+		  SrcPort		  1
+		  Points		  [30, 0]
+		  Branch {
+		    Points		    [0, 25]
+		    DstBlock		    "Product"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "air mass/cycle\n(g)"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "IMT (C)"
+		  SrcPort		  1
+		  Points		  [20, 0; 0, -60; -10, 0]
+		  DstBlock		  "Intake Density"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Intake Density"
+		  SrcPort		  1
+		  Points		  [5, 0; 0, 5]
+		  Branch {
+		    Points		    [20, 0]
+		    Branch {
+		    DstBlock		    "To Workspace3"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "g per kg"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    Points		    [0, 60]
+		    DstBlock		    "volumetric\nefficiency"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  Points		  [30, 0]
+		  Branch {
+		    Points		    [0, 95]
+		    Branch {
+		    DstBlock		    "Display1"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 35; -620, 0]
+		    DstBlock		    "Sum"
+		    DstPort		    2
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "mdot to \nCylinder\n (g/s)"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  Name			  "cycles/sec"
+		  Labels		  [0, 1]
+		  SrcBlock		  "1/(4*pi)"
+		  SrcPort		  1
+		  Points		  [35, 0; 0, -25]
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "volumetric\nefficiency"
+		  SrcPort		  1
+		  Points		  [0, -30; 10, 0]
+		  Branch {
+		    Points		    [10, 0]
+		    DstBlock		    "Product1"
+		    DstPort		    2
+		  }
+		  Branch {
+		    Points		    [0, -35]
+		    DstBlock		    "To Workspace4"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "mdot Input \n(g/s)"
+		  SrcPort		  1
+		  Points		  [20, 0]
+		  Branch {
+		    Points		    [25, 0]
+		    DstBlock		    "Display2"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "im.RT_over_V"
+		  SrcPort		  1
+		  Points		  [10, 0]
+		  Branch {
+		    DstBlock		    "p0 = amb.p/10 bar"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -60]
+		    DstBlock		    "To Workspace1"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "N (rad/sec)"
+		  SrcPort		  1
+		  Points		  [260, 0]
+		  Branch {
+		    DstBlock		    "1/(4*pi)"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -20]
+		    DstBlock		    "volumetric\nefficiency"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "im.RT_over_V"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "p0 = amb.p/10 bar"
+		  SrcPort		  1
+		  Points		  [5, 0; 0, -40]
+		  Branch {
+		    Points		    [0, -25; 130, 0]
+		    Branch {
+		    Points		    [0, -15]
+		    DstBlock		    "To Workspace5"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Manifold Pressure,\nPm (bar)"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "Intake Density"
+		    DstPort		    1
+		  }
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Throttle Flow"
+	      Ports		      [3, 1]
+	      Position		      [265, 155, 540, 245]
+	      BackgroundColor	      "cyan"
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"Throttle Flow"
+		Location		[319, 617, 1145, 1045]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Manifold Pressure,\nPm (bar)"
+		  Position		  [65, 200, 85, 220]
+		  BackgroundColor	  "orange"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Throttle Angle,\ntheta (deg)"
+		  Position		  [65, 155, 85, 175]
+		  BackgroundColor	  "orange"
+		  NamePlacement		  "alternate"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Atmospheric Pressure,\nPa (bar) "
+		  Position		  [65, 270, 85, 290]
+		  BackgroundColor	  "orange"
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Display
+		  Name			  "Display"
+		  Ports			  [1]
+		  Position		  [280, 105, 370, 135]
+		  Orientation		  "left"
+		  Decimation		  "1"
+		  Lockdown		  off
+		}
+		Block {
+		  BlockType		  Display
+		  Name			  "Display1"
+		  Ports			  [1]
+		  Position		  [655, 150, 745, 180]
+		  Orientation		  "left"
+		  Decimation		  "1"
+		  Lockdown		  off
+		}
+		Block {
+		  BlockType		  Scope
+		  Name			  "MAF"
+		  Ports			  [1]
+		  Position		  [700, 319, 730, 351]
+		  Floating		  off
+		  Location		  [188, 390, 512, 629]
+		  Open			  off
+		  NumInputPorts		  "1"
+		  List {
+		    ListType		    AxesTitles
+		    axes1		    "%<SignalLabel>"
+		  }
+		  YMin			  "1.5"
+		  YMax			  "8.5"
+		  SaveName		  "ScopeData11"
+		  DataFormat		  "StructureWithTime"
+		  LimitDataPoints	  off
+		  SampleTime		  "0"
+		}
+		Block {
+		  BlockType		  MinMax
+		  Name			  "MinMax"
+		  Ports			  [2, 1]
+		  Position		  [240, 190, 265, 305]
+		  BackgroundColor	  "yellow"
+		  ShowName		  off
+		  Function		  "min"
+		  Inputs		  "2"
+		  Port {
+		    PortNumber		    1
+		    Name		    "pratio"
+		    RTWStorageClass	    "Auto"
+		    DataLoggingNameMode	    "SignalName"
+		  }
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [3, 1]
+		  Position		  [585, 112, 605, 428]
+		  BackgroundColor	  "yellow"
+		  ShowName		  off
+		  Inputs		  "3"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product1"
+		  Ports			  [2, 1]
+		  Position		  [180, 202, 210, 233]
+		  BackgroundColor	  "yellow"
+		  Inputs		  "*/"
+		  CollapseMode		  "All dimensions"
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product2"
+		  Ports			  [2, 1]
+		  Position		  [180, 257, 210, 288]
+		  BackgroundColor	  "yellow"
+		  Inputs		  "/*"
+		  CollapseMode		  "All dimensions"
+		  OutDataTypeMode	  "Inherit via internal rule"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Constant
+		  Name			  "Sonic Flow "
+		  Position		  [345, 280, 365, 300]
+		  BackgroundColor	  "gray"
+		  Value			  "1.0"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Sum
+		  Name			  "Sum"
+		  Ports			  [2, 1]
+		  Position		  [150, 365, 170, 385]
+		  BackgroundColor	  "yellow"
+		  ShowName		  off
+		  IconShape		  "round"
+		  Inputs		  "+-|"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Switch
+		  Name			  "Switch"
+		  Position		  [420, 238, 445, 302]
+		  BackgroundColor	  "yellow"
+		  ShowName		  off
+		  Threshold		  "0.5"
+		}
+		Block {
+		  BlockType		  Reference
+		  Name			  "Title Block"
+		  Ports			  []
+		  Position		  [30, 17, 1029, 86]
+		  ShowName		  off
+		  SourceBlock		  "ni_annotations_lib/Title Block"
+		  SourceType		  "Unknown"
+		  ShowPortLabels	  "FromPortIcon"
+		  SystemSampleTime	  "-1"
+		  FunctionWithSeparateData "off"
+		  RTWMemSecFuncInitTerm	  "Inherit from model"
+		  RTWMemSecFuncExecute	  "Inherit from model"
+		  RTWMemSecDataConstants  "Inherit from model"
+		  RTWMemSecDataInternal	  "Inherit from model"
+		  RTWMemSecDataParameters "Inherit from model"
+		  tx_title		  "get_param(gcs,'Name')"
+		}
+		Block {
+		  BlockType		  Fcn
+		  Name			  "f(theta)"
+		  Position		  [110, 154, 440, 176]
+		  BackgroundColor	  "yellow"
+		  NamePlacement		  "alternate"
+		  Expr			  "(0.1*2.821 - 0.05231*u + 0.10299*u*u - 0.00063*u*u*u)"
+		}
+		Block {
+		  BlockType		  Signum
+		  Name			  "flow direction"
+		  Position		  [300, 359, 335, 391]
+		  BackgroundColor	  "yellow"
+		}
+		Block {
+		  BlockType		  Fcn
+		  Name			  "g(pratio)"
+		  Position		  [315, 238, 390, 262]
+		  BackgroundColor	  "yellow"
+		  NamePlacement		  "alternate"
+		  Expr			  "2*sqrt(u - u*u)"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Throttle \nFlow, mdot\n (g/s)"
+		  Position		  [650, 260, 670, 280]
+		  BackgroundColor	  "lightBlue"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Line {
+		  SrcBlock		  "Manifold Pressure,\nPm (bar)"
+		  SrcPort		  1
+		  Points		  [40, 0]
+		  Branch {
+		    Points		    [0, 55]
+		    Branch {
+		    Points		    [0, 110]
+		    DstBlock		    "Sum"
+		    DstPort		    2
+		    }
+		    Branch {
+		    DstBlock		    "Product2"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "Product1"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Product2"
+		  SrcPort		  1
+		  DstBlock		  "MinMax"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Product1"
+		  SrcPort		  1
+		  DstBlock		  "MinMax"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Atmospheric Pressure,\nPa (bar) "
+		  SrcPort		  1
+		  Points		  [70, 0]
+		  Branch {
+		    Points		    [0, 0]
+		    Branch {
+		    DstBlock		    "Sum"
+		    DstPort		    1
+		    }
+		    Branch {
+		    DstBlock		    "Product2"
+		    DstPort		    2
+		    }
+		  }
+		  Branch {
+		    Points		    [0, -55]
+		    DstBlock		    "Product1"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "g(pratio)"
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Sonic Flow "
+		  SrcPort		  1
+		  DstBlock		  "Switch"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Switch"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "flow direction"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  3
+		}
+		Line {
+		  SrcBlock		  "Sum"
+		  SrcPort		  1
+		  DstBlock		  "flow direction"
+		  DstPort		  1
+		}
+		Line {
+		  Name			  "pratio"
+		  Labels		  [1, 0]
+		  SrcBlock		  "MinMax"
+		  SrcPort		  1
+		  Points		  [20, 0]
+		  Branch {
+		    Points		    [0, 20]
+		    DstBlock		    "Switch"
+		    DstPort		    2
+		  }
+		  Branch {
+		    DstBlock		    "g(pratio)"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "Throttle Angle,\ntheta (deg)"
+		  SrcPort		  1
+		  DstBlock		  "f(theta)"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  Points		  [15, 0]
+		  Branch {
+		    Points		    [0, 35]
+		    Branch {
+		    Points		    [135, 0]
+		    DstBlock		    "Display1"
+		    DstPort		    1
+		    }
+		    Branch {
+		    Points		    [0, 30]
+		    DstBlock		    "MAF"
+		    DstPort		    1
+		    }
+		  }
+		  Branch {
+		    DstBlock		    "Throttle \nFlow, mdot\n (g/s)"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "f(theta)"
+		  SrcPort		  1
+		  Points		  [5, 0]
+		  Branch {
+		    Points		    [0, -45]
+		    DstBlock		    "Display"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "Product"
+		    DstPort		    1
+		  }
+		}
+		Annotation {
+		  Name			  "Throttle Flow vs. Valve Angle and Pressure"
+		  Position		  [291, 462]
+		  FontSize		  16
+		  FontWeight		  "bold"
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Title Block"
+	      Ports		      []
+	      Position		      [45, 32, 1044, 101]
+	      ShowName		      off
+	      SourceBlock	      "ni_annotations_lib/Title Block"
+	      SourceType	      "Unknown"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      tx_title		      "get_param(gcs,'Name')"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "MAF (g/s)"
+	      Position		      [905, 228, 935, 242]
+	      BackgroundColor	      "lightBlue"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "MAP (bar)"
+	      Position		      [905, 193, 935, 207]
+	      BackgroundColor	      "lightBlue"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "APC (g)"
+	      Position		      [905, 263, 935, 277]
+	      BackgroundColor	      "lightBlue"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Line {
+	      SrcBlock		      "Intake Manifold Flow"
+	      SrcPort		      1
+	      Points		      [30, 0]
+	      Branch {
+		Points			[0, -75; -610, 0]
+		DstBlock		"Throttle Flow"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"MAP (bar)"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Intake Manifold Flow"
+	      SrcPort		      3
+	      DstBlock		      "APC (g)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Intake Manifold Flow"
+	      SrcPort		      2
+	      DstBlock		      "MAF (g/s)"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Throttle Flow"
+	      SrcPort		      1
+	      DstBlock		      "Intake Manifold Flow"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "Baro (bar)"
+	      SrcPort		      1
+	      DstBlock		      "Throttle Flow"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "N (rad/sec)"
+	      SrcPort		      1
+	      Points		      [455, 0]
+	      DstBlock		      "Intake Manifold Flow"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "IMT (C)"
+	      SrcPort		      1
+	      Points		      [455, 0]
+	      DstBlock		      "Intake Manifold Flow"
+	      DstPort		      3
+	    }
+	    Line {
+	      SrcBlock		      "TPS (deg)"
+	      SrcPort		      1
+	      DstBlock		      "Throttle Flow"
+	      DstPort		      2
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "RPM"
+	  Ports			  [1]
+	  Position		  [405, 744, 435, 776]
+	  Floating		  off
+	  Location		  [368, 711, 692, 950]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  YMin			  "1100"
+	  YMax			  "2200"
+	  SaveName		  "ScopeData8"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Scope
+	  Name			  "RPM1"
+	  Ports			  [1]
+	  Position		  [375, 579, 405, 611]
+	  Floating		  off
+	  Location		  [368, 1026, 692, 1265]
+	  Open			  off
+	  NumInputPorts		  "1"
+	  List {
+	    ListType		    AxesTitles
+	    axes1		    "%<SignalLabel>"
+	  }
+	  YMin			  "1100"
+	  YMax			  "2200"
+	  SaveName		  "ScopeData14"
+	  DataFormat		  "StructureWithTime"
+	  LimitDataPoints	  off
+	  SampleTime		  "0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Title Block1"
+	  Ports			  []
+	  Position		  [40, 12, 1039, 81]
+	  ShowName		  off
+	  SourceBlock		  "ni_annotations_lib/Title Block"
+	  SourceType		  "Unknown"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  tx_title		  "get_param(gcs,'Name')"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "rad/sec to RPM"
+	  Position		  [300, 733, 350, 787]
+	  BackgroundColor	  "yellow"
+	  Gain			  "30/pi"
+	  ParameterDataTypeMode	  "Inherit via internal rule"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "MANF::MAF (g/s)"
+	  Position		  [640, 178, 670, 192]
+	  BackgroundColor	  "lightBlue"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "MANF::MAP(bar)"
+	  Position		  [640, 318, 670, 332]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "MANF::APC(g)"
+	  Position		  [645, 398, 675, 412]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "COMB::Shaft Torque(Nm)"
+	  Position		  [1255, 398, 1285, 412]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "SHAFT::Speed(rpm)"
+	  Position		  [425, 683, 455, 697]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "5"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "COMB::Lambda (1=Stocih, <1=Rich)"
+	  Position		  [1080, 658, 1110, 672]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "6"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "SHAFT::Speed(rad/sec)"
+	  Position		  [330, 643, 360, 657]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "7"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "INJ::FPCycle/cyl (g)"
+	  SrcPort		  1
+	  DstBlock		  "Combustion Torque Model"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "SHAFT::Starter Torque (Nm)"
+	  SrcPort		  1
+	  DstBlock		  "Engine Speed"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "TRAN::impeller Torque (Nm)"
+	  SrcPort		  1
+	  DstBlock		  "Engine Speed"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "COMB::Spark Advance (dbtdc)"
+	  SrcPort		  1
+	  DstBlock		  "Combustion Torque Model"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Combustion Torque Model"
+	  SrcPort		  2
+	  DstBlock		  "COMB::Lambda (1=Stocih, <1=Rich)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "MANF::Throttle Postion (deg)"
+	  SrcPort		  1
+	  DstBlock		  "Manifod Model"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Engine Speed"
+	  SrcPort		  1
+	  Points		  [55, 0; 0, 235; -1045, 0]
+	  Branch {
+	    Points		    [0, -115]
+	    DstBlock		    "Combustion Torque Model"
+	    DstPort		    4
+	  }
+	  Branch {
+	    Points		    [-395, 0]
+	    Branch {
+	      Points		      [0, -60]
+	      Branch {
+		Points			[0, -110; 35, 0]
+		Branch {
+		  Points		  [0, -55]
+		  DstBlock		  "RPM1"
+		  DstPort		  1
+		}
+		Branch {
+		  DstBlock		  "SHAFT::Speed(rad/sec)"
+		  DstPort		  1
+		}
+	      }
+	      Branch {
+		DstBlock		"rad/sec to RPM"
+		DstPort			1
+	      }
+	    }
+	    Branch {
+	      Points		      [-180, 0; 0, -340]
+	      DstBlock		      "Manifod Model"
+	      DstPort		      4
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "rad/sec to RPM"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    Points		    [0, -70]
+	    DstBlock		    "SHAFT::Speed(rpm)"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "RPM"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Combustion Torque Model"
+	  SrcPort		  1
+	  Points		  [170, 0]
+	  Branch {
+	    Points		    [0, -100]
+	    DstBlock		    "COMB::Shaft Torque(Nm)"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Engine Speed"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Manifod Model"
+	  SrcPort		  3
+	  Points		  [45, 0]
+	  Branch {
+	    DstBlock		    "Combustion Torque Model"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -60]
+	    DstBlock		    "MANF::APC(g)"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Manifod Model"
+	  SrcPort		  2
+	  DstBlock		  "MANF::MAP(bar)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Manifod Model"
+	  SrcPort		  1
+	  DstBlock		  "MANF::MAF (g/s)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "ENV::IMT (C)"
+	  SrcPort		  1
+	  DstBlock		  "Manifod Model"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "ENV::Baro (kPa)"
+	  SrcPort		  1
+	  DstBlock		  "Manifod Model"
+	  DstPort		  2
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Fuel Injectors"
+      Ports		      [1, 1]
+      Position		      [290, 1110, 490, 1250]
+      OpenFcn		      "open_system(gcb,'Force')"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskPromptString	      "Image|Scale"
+      MaskStyleString	      "edit,edit"
+      MaskTunableValueString  "off,on"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskVarAliasString      ","
+      MaskVariables	      "iname=@1;scale=@2;"
+      MaskInitialization      "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;\n\n"
+      MaskDisplay	      "image(img, [0.5-ii.Width/wd*scale/2, 0.5-ii.Height/ht*scale/2, ii.Width/wd*scale,ii.Height/ht*scale]);\n\n\n\n"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "normalized"
+      MaskValueString	      "'pfi.jpg'|0.125"
+      MaskTabNameString	      ","
+      System {
+	Name			"Fuel Injectors"
+	Location		[920, 678, 1700, 1020]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "FUEL::Ton[6] (sec)"
+	  Position		  [85, 158, 115, 172]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	  PortDimensions	  "6"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Lookup
+	  Name			  "Injector Curve"
+	  Position		  [285, 140, 335, 190]
+	  InputValues		  "MDL.ECU_ENGINE.InjectionTime.v(14,:)'"
+	  Table			  "MDL.ECU_ENGINE.InjectionTime.y*1000"
+	  LookUpMeth		  "Interpolation-Use End Values"
+	  OutDataTypeMode	  "double"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum of\nElements"
+	  Ports			  [1, 1]
+	  Position		  [435, 150, 465, 180]
+	  Inputs		  "+"
+	  CollapseMode		  "All dimensions"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^-10"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Title Block1"
+	  Ports			  []
+	  Position		  [40, 12, 1039, 81]
+	  ShowName		  off
+	  SourceBlock		  "ni_annotations_lib/Title Block"
+	  SourceType		  "Unknown"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  tx_title		  "get_param(gcs,'Name')"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "INJ::FPCycle (g)"
+	  Position		  [595, 158, 625, 172]
+	  BackgroundColor	  "lightBlue"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Line {
+	  SrcBlock		  "Sum of\nElements"
+	  SrcPort		  1
+	  DstBlock		  "INJ::FPCycle (g)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Injector Curve"
+	  SrcPort		  1
+	  DstBlock		  "Sum of\nElements"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "FUEL::Ton[6] (sec)"
+	  SrcPort		  1
+	  DstBlock		  "Injector Curve"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Manual Transmission Model"
+      Ports		      [4, 3]
+      Position		      [765, 404, 1455, 741]
+      OpenFcn		      "open_system(gcb,'Force')"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskPromptString	      "Image|scale"
+      MaskStyleString	      "edit,edit"
+      MaskTunableValueString  "off,off"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskVarAliasString      ","
+      MaskVariables	      "iname=@1;scale=@2;"
+      MaskInitialization      "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;\n\n"
+      MaskDisplay	      "image(img, [0.5-ii.Width/wd*scale/2, 0.5-ii.Height/ht*scale/2, ii.Width/wd*scale,ii.Height/ht*scale]);\n\n\n\n"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "normalized"
+      MaskValueString	      "'Manual_Transmission.png'|0.55"
+      MaskTabNameString	      ","
+      System {
+	Name			"Manual Transmission Model"
+	Location		[887, 259, 2672, 1222]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "DRIV::Gear Selection [-1..4]"
+	  Position		  [220, 278, 250, 292]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "SHAFT::engine speed (rad/s)"
+	  Position		  [220, 248, 250, 262]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "DRIV:: Clutch [0.1=Engaged]"
+	  Position		  [340, 193, 370, 207]
+	  BackgroundColor	  "orange"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "VEH::Transmission out speed (rad/s)"
+	  Position		  [220, 308, 250, 322]
+	  BackgroundColor	  "orange"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Constant
+	  Name			  "One"
+	  Position		  [475, 123, 515, 147]
+	  BackgroundColor	  "gray"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product"
+	  Ports			  [2, 1]
+	  Position		  [720, 237, 750, 268]
+	  BackgroundColor	  "yellow"
+	  CollapseMode		  "All dimensions"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "Product1"
+	  Ports			  [2, 1]
+	  Position		  [720, 287, 750, 318]
+	  BackgroundColor	  "yellow"
+	  CollapseMode		  "All dimensions"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation"
+	  Position		  [475, 185, 505, 215]
+	  BackgroundColor	  "yellow"
+	  UpperLimit		  "1"
+	  LowerLimit		  "0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Saturate
+	  Name			  "Saturation1"
+	  Position		  [395, 240, 425, 270]
+	  BackgroundColor	  "yellow"
+	  UpperLimit		  "inf"
+	  LowerLimit		  "2*pi/60"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [570, 190, 590, 210]
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  IconShape		  "round"
+	  Inputs		  "+-|"
+	  CollapseMode		  "All dimensions"
+	  InputSameDT		  off
+	  OutDataTypeMode	  "Inherit via internal rule"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  SaturateOnIntegerOverflow off
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Title Block1"
+	  Ports			  []
+	  Position		  [40, 12, 1039, 81]
+	  ShowName		  off
+	  SourceBlock		  "ni_annotations_lib/Title Block"
+	  SourceType		  ""
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData off
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  tx_title		  "get_param(gcs,'Name')"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace1"
+	  Position		  [830, 346, 890, 364]
+	  VariableName		  "hist_trans_tur_trq"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace2"
+	  Position		  [830, 206, 890, 224]
+	  VariableName		  "hist_trans_imp_trq"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace3"
+	  Position		  [835, 466, 895, 484]
+	  VariableName		  "hist_trans_gear"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "transmission"
+	  Ports			  [3, 2]
+	  Position		  [570, 237, 630, 333]
+	  BackgroundColor	  "cyan"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "transmission"
+	    Location		    [844, 326, 1638, 772]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Ne"
+	      Position		      [55, 138, 85, 152]
+	      BackgroundColor	      "orange"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "gear"
+	      Position		      [55, 208, 85, 222]
+	      BackgroundColor	      "orange"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Nout"
+	      Position		      [55, 243, 85, 257]
+	      BackgroundColor	      "orange"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Title Block1"
+	      Ports		      []
+	      Position		      [20, 17, 1019, 86]
+	      ShowName		      off
+	      SourceBlock	      "ni_annotations_lib/Title Block"
+	      SourceType	      ""
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData off
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      tx_title		      "get_param(gcs,'Name')"
+	    }
+	    Block {
+	      BlockType		      ToWorkspace
+	      Name		      "To Workspace1"
+	      Position		      [430, 106, 490, 124]
+	      ShowName		      off
+	      VariableName	      "hist_imp_spd"
+	      MaxDataPoints	      "hist_sample_size"
+	      SampleTime	      "-1"
+	      SaveFormat	      "Array"
+	    }
+	    Block {
+	      BlockType		      ToWorkspace
+	      Name		      "To Workspace3"
+	      Position		      [440, 276, 500, 294]
+	      ShowName		      off
+	      VariableName	      "hist_tur_spd"
+	      MaxDataPoints	      "hist_sample_size"
+	      SampleTime	      "-1"
+	      SaveFormat	      "Array"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Torque\nConverter"
+	      Ports		      [2, 2]
+	      Position		      [170, 130, 225, 185]
+	      BackgroundColor	      "cyan"
+	      ShowPortLabels	      "none"
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskType		      "torque converter"
+	      MaskDescription	      "torque converter "
+	      MaskHelp		      "Torque converter input and output torques are computed as a function of the input and output speeds"
+	      MaskPromptString	      " speed ratio | K factor | torque ratio"
+	      MaskStyleString	      "edit,edit,edit"
+	      MaskTunableValueString  "on,on,on"
+	      MaskCallbackString      "||"
+	      MaskEnableString	      "on,on,on"
+	      MaskVisibilityString    "on,on,on"
+	      MaskToolTipString	      "on,on,on"
+	      MaskVarAliasString      ",,"
+	      MaskVariables	      "speedratio=@1;Kfactor=@2;Torkratio=@3;"
+	      MaskDisplay	      "plot([cos([90:10:450]*pi/180),.63*cos([90:10:450]*pi/180),.63*cos([90:10:240]*pi/180),cos([240:10:300]*pi/180),.63*cos([300]*pi/180)],[sin([90:10:450]*pi/180),.63*sin([90:10:450]*pi/180)+.1,.63*sin([90:10:240]*pi/180)+.1,sin([240:10:300]*pi/180),.63*sin([300]*pi/180)+.1])"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "tc.tur_imp_ratio|tc.k_curve|tc.r_curve"
+	      MaskTabNameString	      ",,"
+	      Port {
+		PortNumber		1
+		Name			"impeller torque"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"turbine torque"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"Torque\nConverter"
+		Location		[4, 182, 619, 403]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Ne"
+		  Position		  [50, 98, 75, 112]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Nin"
+		  Position		  [50, 68, 75, 82]
+		  NamePlacement		  "alternate"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Lookup
+		  Name			  "K\nfactor"
+		  Position		  [210, 65, 260, 115]
+		  InputValues		  "speedratio"
+		  Table			  "Kfactor"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Lookup
+		  Name			  "Torque\nratio"
+		  Position		  [360, 119, 415, 171]
+		  InputValues		  "speedratio"
+		  Table			  "Torkratio"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Fcn
+		  Name			  "impeller"
+		  Position		  [355, 56, 415, 94]
+		  Expr			  "u^2"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "quotient"
+		  Ports			  [2, 1]
+		  Position		  [290, 39, 335, 106]
+		  Inputs		  "*/"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "speed\nratio"
+		  Ports			  [2, 1]
+		  Position		  [120, 61, 170, 119]
+		  Inputs		  "*/"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "turbine"
+		  Ports			  [2, 1]
+		  Position		  [465, 64, 510, 106]
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Ti"
+		  Position		  [535, 29, 560, 41]
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Tt"
+		  Position		  [535, 79, 560, 91]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Line {
+		  SrcBlock		  "Nin"
+		  SrcPort		  1
+		  DstBlock		  "speed\nratio"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Ne"
+		  SrcPort		  1
+		  Points		  [0, 0; 10, 0]
+		  Branch {
+		    Points		    [0, -50]
+		    DstBlock		    "quotient"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "speed\nratio"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "turbine"
+		  SrcPort		  1
+		  DstBlock		  "Tt"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "impeller"
+		  SrcPort		  1
+		  Points		  [0, 0; 15, 0]
+		  Branch {
+		    Points		    [0, -40]
+		    DstBlock		    "Ti"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "turbine"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "speed\nratio"
+		  SrcPort		  1
+		  Points		  [0, 0; 10, 0]
+		  Branch {
+		    DstBlock		    "K\nfactor"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 55]
+		    DstBlock		    "Torque\nratio"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "K\nfactor"
+		  SrcPort		  1
+		  DstBlock		  "quotient"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "quotient"
+		  SrcPort		  1
+		  DstBlock		  "impeller"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Torque\nratio"
+		  SrcPort		  1
+		  Points		  [15, 0; 0, -50]
+		  DstBlock		  "turbine"
+		  DstPort		  2
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "transmission\nratio"
+	      Ports		      [3, 2]
+	      Position		      [330, 161, 390, 219]
+	      BackgroundColor	      "cyan"
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"transmission\nratio"
+		Location		[220, 346, 735, 580]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Tin"
+		  Position		  [25, 28, 55, 42]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "gear"
+		  Position		  [25, 73, 55, 87]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Nout"
+		  Position		  [395, 163, 425, 177]
+		  Orientation		  "left"
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs"
+		  Position		  [235, 65, 265, 95]
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Abs
+		  Name			  "Abs1"
+		  Position		  [325, 155, 355, 185]
+		  Orientation		  "left"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  SaturateOnIntegerOverflow off
+		}
+		Block {
+		  BlockType		  Lookup
+		  Name			  "Look-Up\nTable"
+		  Position		  [110, 65, 140, 95]
+		  InputValues		  "[-1 0 1 2 3 4]"
+		  Table			  "[-2.393 0 2.393 1.450 1.000 0.677]"
+		  LookUpMeth		  "Interpolation-Use End Values"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [235, 27, 265, 58]
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product1"
+		  Ports			  [2, 1]
+		  Position		  [245, 147, 275, 178]
+		  Orientation		  "left"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Tout"
+		  Position		  [335, 38, 365, 52]
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Nin"
+		  Position		  [25, 158, 55, 172]
+		  Orientation		  "left"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Line {
+		  SrcBlock		  "Abs1"
+		  SrcPort		  1
+		  DstBlock		  "Product1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Abs"
+		  SrcPort		  1
+		  Points		  [20, 0]
+		  DstBlock		  "Product1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "gear"
+		  SrcPort		  1
+		  DstBlock		  "Look-Up\nTable"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Tin"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "Tout"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product1"
+		  SrcPort		  1
+		  DstBlock		  "Nin"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Nout"
+		  SrcPort		  1
+		  DstBlock		  "Abs1"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Look-Up\nTable"
+		  SrcPort		  1
+		  Points		  [30, 0]
+		  Branch {
+		    DstBlock		    "Abs"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, -30]
+		    DstBlock		    "Product"
+		    DstPort		    2
+		  }
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ti"
+	      Position		      [440, 138, 470, 152]
+	      BackgroundColor	      "lightBlue"
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Tout"
+	      Position		      [440, 168, 470, 182]
+	      BackgroundColor	      "lightBlue"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      Name		      "turbine torque"
+	      Labels		      [0, 1]
+	      SrcBlock		      "Torque\nConverter"
+	      SrcPort		      2
+	      DstBlock		      "transmission\nratio"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "transmission\nratio"
+	      SrcPort		      2
+	      Points		      [15, 0; 0, 80]
+	      Branch {
+		Points			[-275, 0; 0, -115]
+		DstBlock		"Torque\nConverter"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"To Workspace3"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Ne"
+	      SrcPort		      1
+	      Points		      [45, 0]
+	      Branch {
+		DstBlock		"Torque\nConverter"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -30]
+		DstBlock		"To Workspace1"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "gear"
+	      SrcPort		      1
+	      Points		      [180, 0; 0, -25]
+	      DstBlock		      "transmission\nratio"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Nout"
+	      SrcPort		      1
+	      Points		      [200, 0; 0, -40]
+	      DstBlock		      "transmission\nratio"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "impeller torque"
+	      Labels		      [0, 1]
+	      SrcBlock		      "Torque\nConverter"
+	      SrcPort		      1
+	      DstBlock		      "Ti"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "transmission\nratio"
+	      SrcPort		      1
+	      DstBlock		      "Tout"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TRAN::Transmission out torque (N-m)"
+	  Position		  [865, 299, 890, 311]
+	  BackgroundColor	  "lightBlue"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TRAN::impeller torque (N-m)"
+	  Position		  [865, 249, 890, 261]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TRAN::gear number"
+	  Position		  [865, 419, 890, 431]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Line {
+	  SrcBlock		  "Saturation1"
+	  SrcPort		  1
+	  DstBlock		  "transmission"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  Points		  [100, 0; 0, 45]
+	  Branch {
+	    Points		    [0, 50]
+	    DstBlock		    "Product1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 0]
+	    DstBlock		    "Product"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "One"
+	  SrcPort		  1
+	  Points		  [60, 0]
+	  DstBlock		  "Sum"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Saturation"
+	  SrcPort		  1
+	  DstBlock		  "Sum"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Product1"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  Branch {
+	    Points		    [0, 50]
+	    DstBlock		    "To Workspace1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "TRAN::Transmission out torque (N-m)"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "transmission"
+	  SrcPort		  2
+	  DstBlock		  "Product1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "transmission"
+	  SrcPort		  1
+	  DstBlock		  "Product"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "Product"
+	  SrcPort		  1
+	  Points		  [45, 0]
+	  Branch {
+	    Points		    [0, -40]
+	    DstBlock		    "To Workspace2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "TRAN::impeller torque (N-m)"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "DRIV:: Clutch [0.1=Engaged]"
+	  SrcPort		  1
+	  DstBlock		  "Saturation"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "DRIV::Gear Selection [-1..4]"
+	  SrcPort		  1
+	  Points		  [195, 0]
+	  Branch {
+	    Points		    [0, 140; 360, 0]
+	    Branch {
+	      Points		      [0, 50]
+	      DstBlock		      "To Workspace3"
+	      DstPort		      1
+	    }
+	    Branch {
+	      DstBlock		      "TRAN::gear number"
+	      DstPort		      1
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "transmission"
+	    DstPort		    2
+	  }
+	}
+	Line {
+	  SrcBlock		  "VEH::Transmission out speed (rad/s)"
+	  SrcPort		  1
+	  DstBlock		  "transmission"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "SHAFT::engine speed (rad/s)"
+	  SrcPort		  1
+	  DstBlock		  "Saturation1"
+	  DstPort		  1
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Transmission Model"
+      Ports		      [4, 3]
+      Position		      [55, 404, 745, 741]
+      OpenFcn		      "open_system(gcb,'Force')"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskPromptString	      "Image|scale"
+      MaskStyleString	      "edit,edit"
+      MaskTunableValueString  "off,off"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskVarAliasString      ","
+      MaskVariables	      "iname=@1;scale=@2;"
+      MaskInitialization      "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;\n\n"
+      MaskDisplay	      "image(img, [0.5-ii.Width/wd*scale/2, 0.5-ii.Height/ht*scale/2, ii.Width/wd*scale,ii.Height/ht*scale]);\n\n\n\n"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "normalized"
+      MaskValueString	      "'tran.jpg'|0.375"
+      MaskTabNameString	      ","
+      System {
+	Name			"Transmission Model"
+	Location		[887, 259, 2672, 1222]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "MANF::Throttle Position (deg)"
+	  Position		  [220, 458, 250, 472]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "SHAFT::engine speed (rad/s)"
+	  Position		  [220, 158, 250, 172]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "VEH:: vehicle speed (mph)"
+	  Position		  [220, 268, 250, 282]
+	  BackgroundColor	  "orange"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "VEH::Transmission out speed (rad/s)"
+	  Position		  [220, 218, 250, 232]
+	  BackgroundColor	  "orange"
+	  Port			  "4"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "Threshold Calculation"
+	  Ports			  [2, 2, 0, 1]
+	  Position		  [370, 373, 495, 422]
+	  Orientation		  "left"
+	  BackgroundColor	  "cyan"
+	  TreatAsAtomicUnit	  on
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "Threshold Calculation"
+	    Location		    [148, 234, 563, 417]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "gear"
+	      Position		      [20, 138, 50, 152]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "throttle"
+	      Position		      [20, 53, 50, 67]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      TriggerPort
+	      Name		      "run"
+	      Ports		      []
+	      Position		      [160, 15, 180, 35]
+	      TriggerType	      "function-call"
+	      ZeroCross		      off
+	    }
+	    Block {
+	      BlockType		      Lookup2D
+	      Name		      "interp_down"
+	      Position		      [240, 117, 270, 153]
+	      RowIndex		      "trans.downth"
+	      ColumnIndex	      "[1:4]"
+	      Table		      "trans.downtab"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^-10"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Lookup2D
+	      Name		      "interp_up"
+	      Position		      [240, 52, 270, 88]
+	      RowIndex		      "trans.upth"
+	      ColumnIndex	      "[1:4]"
+	      Table		      "trans.uptab"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^-10"
+	      SaturateOnIntegerOverflow	off
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "down_th"
+	      Position		      [340, 128, 370, 142]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "up_th"
+	      Position		      [335, 63, 365, 77]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      "gear"
+	      SrcPort		      1
+	      Points		      [95, 0]
+	      Branch {
+		DstBlock		"interp_down"
+		DstPort			2
+	      }
+	      Branch {
+		Points			[0, -65]
+		DstBlock		"interp_up"
+		DstPort			2
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "throttle"
+	      SrcPort		      1
+	      Points		      [110, 0]
+	      Branch {
+		Points			[0, 65]
+		DstBlock		"interp_down"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"interp_up"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "interp_down"
+	      SrcPort		      1
+	      DstBlock		      "down_th"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "interp_up"
+	      SrcPort		      1
+	      DstBlock		      "up_th"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Title Block1"
+	  Ports			  []
+	  Position		  [40, 12, 1039, 81]
+	  ShowName		  off
+	  SourceBlock		  "ni_annotations_lib/Title Block"
+	  SourceType		  "Unknown"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  tx_title		  "get_param(gcs,'Name')"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace1"
+	  Position		  [700, 261, 760, 279]
+	  VariableName		  "hist_trans_tur_trq"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace2"
+	  Position		  [700, 116, 760, 134]
+	  VariableName		  "hist_trans_imp_trq"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace3"
+	  Position		  [705, 376, 765, 394]
+	  VariableName		  "hist_trans_gear"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "shift_logic"
+	  Ports			  [3, 2]
+	  Position		  [355, 264, 490, 336]
+	  BackgroundColor	  "cyan"
+	  PermitHierarchicalResolution "ExplicitOnly"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  MaskType		  "Stateflow"
+	  MaskDescription	  "Stateflow diagram"
+	  MaskDisplay		  "plot(sf('Private','sfblk','xIcon'),sf('Private','sfblk','yIcon'));text(0.5,0,sf('Private', 'sfblk', 'tIcon'),'HorizontalAl','Center','VerticalAl','Bottom');"
+	  MaskSelfModifiable	  on
+	  MaskIconFrame		  off
+	  MaskIconOpaque	  off
+	  MaskIconRotate	  "none"
+	  MaskIconUnits		  "autoscale"
+	  System {
+	    Name		    "shift_logic"
+	    Location		    [70, 200, 570, 460]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "speed"
+	      Position		      [20, 101, 40, 119]
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "up_th"
+	      Position		      [20, 136, 40, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "down_th"
+	      Position		      [20, 171, 40, 189]
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Demux
+	      Name		      " Demux "
+	      Ports		      [1, 1]
+	      Position		      [270, 180, 320, 220]
+	      Outputs		      "1"
+	      Port {
+		PortNumber		1
+		Name			"CALC_TH"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      "S-Function"
+	      Name		      " SFunction "
+	      Tag		      "Stateflow S-Function hil14_mdl_lib 2"
+	      Ports		      [3, 2]
+	      Position		      [180, 100, 230, 180]
+	      FunctionName	      "sf_sfun"
+	      Parameters	      "TWAIT"
+	      PortCounts	      "[3 2]"
+	      EnableBusSupport	      on
+	      Port {
+		PortNumber		2
+		Name			"gear"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "gear"
+	      Position		      [460, 101, 480, 119]
+	      IconDisplay	      "Port number"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "CALC_TH"
+	      Position		      [460, 136, 480, 154]
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	    }
+	    Line {
+	      SrcBlock		      " SFunction "
+	      SrcPort		      1
+	      Points		      [20, 0]
+	      DstBlock		      " Demux "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "speed"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "up_th"
+	      SrcPort		      1
+	      Points		      [120, 0]
+	      DstBlock		      " SFunction "
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "down_th"
+	      SrcPort		      1
+	      DstBlock		      " SFunction "
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "gear"
+	      Labels		      [0, 0]
+	      SrcBlock		      " SFunction "
+	      SrcPort		      2
+	      DstBlock		      "gear"
+	      DstPort		      1
+	    }
+	    Line {
+	      Name		      "CALC_TH"
+	      Labels		      [0, 0]
+	      SrcBlock		      " Demux "
+	      SrcPort		      1
+	      DstBlock		      "CALC_TH"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  SubSystem
+	  Name			  "transmission"
+	  Ports			  [3, 2]
+	  Position		  [570, 147, 630, 243]
+	  BackgroundColor	  "cyan"
+	  MinAlgLoopOccurrences	  off
+	  RTWSystemCode		  "Auto"
+	  FunctionWithSeparateData off
+	  System {
+	    Name		    "transmission"
+	    Location		    [382, 287, 1176, 733]
+	    Open		    off
+	    ModelBrowserVisibility  off
+	    ModelBrowserWidth	    200
+	    ScreenColor		    "white"
+	    PaperOrientation	    "landscape"
+	    PaperPositionMode	    "auto"
+	    PaperType		    "usletter"
+	    PaperUnits		    "inches"
+	    TiledPaperMargins	    [0.500000, 0.500000, 0.500000, 0.500000]
+	    TiledPageScale	    1
+	    ShowPageBoundaries	    off
+	    ZoomFactor		    "100"
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Ne"
+	      Position		      [55, 138, 85, 152]
+	      BackgroundColor	      "orange"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "gear"
+	      Position		      [55, 208, 85, 222]
+	      BackgroundColor	      "orange"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Inport
+	      Name		      "Nout"
+	      Position		      [55, 243, 85, 257]
+	      BackgroundColor	      "orange"
+	      Port		      "3"
+	      IconDisplay	      "Port number"
+	      OutDataType	      "sfix(16)"
+	      OutScaling	      "2^0"
+	    }
+	    Block {
+	      BlockType		      Reference
+	      Name		      "Title Block1"
+	      Ports		      []
+	      Position		      [20, 17, 1019, 86]
+	      ShowName		      off
+	      SourceBlock	      "ni_annotations_lib/Title Block"
+	      SourceType	      "Unknown"
+	      ShowPortLabels	      "FromPortIcon"
+	      SystemSampleTime	      "-1"
+	      FunctionWithSeparateData "off"
+	      RTWMemSecFuncInitTerm   "Inherit from model"
+	      RTWMemSecFuncExecute    "Inherit from model"
+	      RTWMemSecDataConstants  "Inherit from model"
+	      RTWMemSecDataInternal   "Inherit from model"
+	      RTWMemSecDataParameters "Inherit from model"
+	      tx_title		      "get_param(gcs,'Name')"
+	    }
+	    Block {
+	      BlockType		      ToWorkspace
+	      Name		      "To Workspace1"
+	      Position		      [430, 106, 490, 124]
+	      ShowName		      off
+	      VariableName	      "hist_imp_spd"
+	      MaxDataPoints	      "hist_sample_size"
+	      SampleTime	      "-1"
+	      SaveFormat	      "Array"
+	    }
+	    Block {
+	      BlockType		      ToWorkspace
+	      Name		      "To Workspace3"
+	      Position		      [440, 276, 500, 294]
+	      ShowName		      off
+	      VariableName	      "hist_tur_spd"
+	      MaxDataPoints	      "hist_sample_size"
+	      SampleTime	      "-1"
+	      SaveFormat	      "Array"
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "Torque\nConverter"
+	      Ports		      [2, 2]
+	      Position		      [170, 130, 225, 185]
+	      BackgroundColor	      "cyan"
+	      ShowPortLabels	      "none"
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      MaskType		      "torque converter"
+	      MaskDescription	      "torque converter "
+	      MaskHelp		      "Torque converter input and output torques are computed as a function of the input and output speeds"
+	      MaskPromptString	      " speed ratio | K factor | torque ratio"
+	      MaskStyleString	      "edit,edit,edit"
+	      MaskTunableValueString  "on,on,on"
+	      MaskCallbackString      "||"
+	      MaskEnableString	      "on,on,on"
+	      MaskVisibilityString    "on,on,on"
+	      MaskToolTipString	      "on,on,on"
+	      MaskVarAliasString      ",,"
+	      MaskVariables	      "speedratio=@1;Kfactor=@2;Torkratio=@3;"
+	      MaskDisplay	      "plot([cos([90:10:450]*pi/180),.63*cos([90:10:450]*pi/180),.63*cos([90:10:240]*pi/180),cos([240:10:300]*pi/180),.63*cos([300]*pi/180)],[sin([90:10:450]*pi/180),.63*sin([90:10:450]*pi/180)+.1,.63*sin([90:10:240]*pi/180)+.1,sin([240:10:300]*pi/180),.63*sin([300]*pi/180)+.1])"
+	      MaskIconFrame	      on
+	      MaskIconOpaque	      on
+	      MaskIconRotate	      "none"
+	      MaskIconUnits	      "autoscale"
+	      MaskValueString	      "tc.tur_imp_ratio|tc.k_curve|tc.r_curve"
+	      MaskTabNameString	      ",,"
+	      Port {
+		PortNumber		1
+		Name			"impeller torque"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      Port {
+		PortNumber		2
+		Name			"turbine torque"
+		RTWStorageClass		"Auto"
+		DataLoggingNameMode	"SignalName"
+	      }
+	      System {
+		Name			"Torque\nConverter"
+		Location		[4, 182, 619, 403]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Ne"
+		  Position		  [50, 98, 75, 112]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Nin"
+		  Position		  [50, 68, 75, 82]
+		  NamePlacement		  "alternate"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Lookup
+		  Name			  "K\nfactor"
+		  Position		  [210, 65, 260, 115]
+		  InputValues		  "speedratio"
+		  Table			  "Kfactor"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Lookup
+		  Name			  "Torque\nratio"
+		  Position		  [360, 119, 415, 171]
+		  InputValues		  "speedratio"
+		  Table			  "Torkratio"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Fcn
+		  Name			  "impeller"
+		  Position		  [355, 56, 415, 94]
+		  Expr			  "u^2"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "quotient"
+		  Ports			  [2, 1]
+		  Position		  [290, 39, 335, 106]
+		  Inputs		  "*/"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "speed\nratio"
+		  Ports			  [2, 1]
+		  Position		  [120, 61, 170, 119]
+		  Inputs		  "*/"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "turbine"
+		  Ports			  [2, 1]
+		  Position		  [465, 64, 510, 106]
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Ti"
+		  Position		  [535, 29, 560, 41]
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Tt"
+		  Position		  [535, 79, 560, 91]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Line {
+		  SrcBlock		  "Nin"
+		  SrcPort		  1
+		  DstBlock		  "speed\nratio"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Ne"
+		  SrcPort		  1
+		  Points		  [0, 0; 10, 0]
+		  Branch {
+		    Points		    [0, -50]
+		    DstBlock		    "quotient"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "speed\nratio"
+		    DstPort		    2
+		  }
+		}
+		Line {
+		  SrcBlock		  "turbine"
+		  SrcPort		  1
+		  DstBlock		  "Tt"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "impeller"
+		  SrcPort		  1
+		  Points		  [0, 0; 15, 0]
+		  Branch {
+		    Points		    [0, -40]
+		    DstBlock		    "Ti"
+		    DstPort		    1
+		  }
+		  Branch {
+		    DstBlock		    "turbine"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "speed\nratio"
+		  SrcPort		  1
+		  Points		  [0, 0; 10, 0]
+		  Branch {
+		    DstBlock		    "K\nfactor"
+		    DstPort		    1
+		  }
+		  Branch {
+		    Points		    [0, 55]
+		    DstBlock		    "Torque\nratio"
+		    DstPort		    1
+		  }
+		}
+		Line {
+		  SrcBlock		  "K\nfactor"
+		  SrcPort		  1
+		  DstBlock		  "quotient"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "quotient"
+		  SrcPort		  1
+		  DstBlock		  "impeller"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Torque\nratio"
+		  SrcPort		  1
+		  Points		  [15, 0; 0, -50]
+		  DstBlock		  "turbine"
+		  DstPort		  2
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      SubSystem
+	      Name		      "transmission\nratio"
+	      Ports		      [3, 2]
+	      Position		      [330, 161, 390, 219]
+	      BackgroundColor	      "cyan"
+	      MinAlgLoopOccurrences   off
+	      RTWSystemCode	      "Auto"
+	      FunctionWithSeparateData off
+	      System {
+		Name			"transmission\nratio"
+		Location		[220, 346, 611, 580]
+		Open			off
+		ModelBrowserVisibility	off
+		ModelBrowserWidth	200
+		ScreenColor		"white"
+		PaperOrientation	"landscape"
+		PaperPositionMode	"auto"
+		PaperType		"usletter"
+		PaperUnits		"inches"
+		TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+		TiledPageScale		1
+		ShowPageBoundaries	off
+		ZoomFactor		"100"
+		Block {
+		  BlockType		  Inport
+		  Name			  "Tin"
+		  Position		  [25, 28, 55, 42]
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "gear"
+		  Position		  [25, 73, 55, 87]
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Inport
+		  Name			  "Nout"
+		  Position		  [335, 163, 365, 177]
+		  Orientation		  "left"
+		  Port			  "3"
+		  IconDisplay		  "Port number"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Lookup
+		  Name			  "Look-Up\nTable"
+		  Position		  [110, 65, 140, 95]
+		  InputValues		  "[1 2 3 4]"
+		  Table			  "[2.393 1.450 1.000 0.677]"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product"
+		  Ports			  [2, 1]
+		  Position		  [235, 27, 265, 58]
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Product
+		  Name			  "Product1"
+		  Ports			  [2, 1]
+		  Position		  [245, 147, 275, 178]
+		  Orientation		  "left"
+		  CollapseMode		  "All dimensions"
+		  OutDataType		  "sfix(16)"
+		  OutScaling		  "2^0"
+		  RndMeth		  "Floor"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Tout"
+		  Position		  [335, 38, 365, 52]
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Block {
+		  BlockType		  Outport
+		  Name			  "Nin"
+		  Position		  [25, 158, 55, 172]
+		  Orientation		  "left"
+		  Port			  "2"
+		  IconDisplay		  "Port number"
+		  InitialOutput		  "0"
+		}
+		Line {
+		  SrcBlock		  "gear"
+		  SrcPort		  1
+		  DstBlock		  "Look-Up\nTable"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Tin"
+		  SrcPort		  1
+		  DstBlock		  "Product"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product"
+		  SrcPort		  1
+		  DstBlock		  "Tout"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Product1"
+		  SrcPort		  1
+		  DstBlock		  "Nin"
+		  DstPort		  1
+		}
+		Line {
+		  SrcBlock		  "Nout"
+		  SrcPort		  1
+		  DstBlock		  "Product1"
+		  DstPort		  2
+		}
+		Line {
+		  SrcBlock		  "Look-Up\nTable"
+		  SrcPort		  1
+		  Points		  [30, 0]
+		  Branch {
+		    Points		    [0, -30]
+		    DstBlock		    "Product"
+		    DstPort		    2
+		  }
+		  Branch {
+		    Points		    [115, 0]
+		    DstBlock		    "Product1"
+		    DstPort		    1
+		  }
+		}
+	      }
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Ti"
+	      Position		      [440, 138, 470, 152]
+	      BackgroundColor	      "lightBlue"
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Block {
+	      BlockType		      Outport
+	      Name		      "Tout"
+	      Position		      [440, 168, 470, 182]
+	      BackgroundColor	      "lightBlue"
+	      Port		      "2"
+	      IconDisplay	      "Port number"
+	      InitialOutput	      "0"
+	    }
+	    Line {
+	      Name		      "turbine torque"
+	      Labels		      [0, 1]
+	      SrcBlock		      "Torque\nConverter"
+	      SrcPort		      2
+	      DstBlock		      "transmission\nratio"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "transmission\nratio"
+	      SrcPort		      2
+	      Points		      [15, 0; 0, 80]
+	      Branch {
+		Points			[-275, 0; 0, -115]
+		DstBlock		"Torque\nConverter"
+		DstPort			2
+	      }
+	      Branch {
+		DstBlock		"To Workspace3"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "Ne"
+	      SrcPort		      1
+	      Points		      [45, 0]
+	      Branch {
+		DstBlock		"Torque\nConverter"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, -30]
+		DstBlock		"To Workspace1"
+		DstPort			1
+	      }
+	    }
+	    Line {
+	      SrcBlock		      "gear"
+	      SrcPort		      1
+	      Points		      [180, 0; 0, -25]
+	      DstBlock		      "transmission\nratio"
+	      DstPort		      2
+	    }
+	    Line {
+	      SrcBlock		      "Nout"
+	      SrcPort		      1
+	      Points		      [200, 0; 0, -40]
+	      DstBlock		      "transmission\nratio"
+	      DstPort		      3
+	    }
+	    Line {
+	      Name		      "impeller torque"
+	      Labels		      [0, 1]
+	      SrcBlock		      "Torque\nConverter"
+	      SrcPort		      1
+	      DstBlock		      "Ti"
+	      DstPort		      1
+	    }
+	    Line {
+	      SrcBlock		      "transmission\nratio"
+	      SrcPort		      1
+	      DstBlock		      "Tout"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TRAN::Transmission out torque (N-m)"
+	  Position		  [735, 214, 760, 226]
+	  BackgroundColor	  "lightBlue"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TRAN::impeller torque (N-m)"
+	  Position		  [735, 164, 760, 176]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "TRAN::gear number"
+	  Position		  [735, 329, 760, 341]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "3"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Line {
+	  SrcBlock		  "VEH::Transmission out speed (rad/s)"
+	  SrcPort		  1
+	  DstBlock		  "transmission"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "VEH:: vehicle speed (mph)"
+	  SrcPort		  1
+	  DstBlock		  "shift_logic"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "transmission"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  Branch {
+	    DstBlock		    "TRAN::impeller torque (N-m)"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, -45]
+	    DstBlock		    "To Workspace2"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "MANF::Throttle Position (deg)"
+	  SrcPort		  1
+	  Points		  [260, 0; 0, -55]
+	  DstBlock		  "Threshold Calculation"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "SHAFT::engine speed (rad/s)"
+	  SrcPort		  1
+	  DstBlock		  "transmission"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "transmission"
+	  SrcPort		  2
+	  Points		  [30, 0]
+	  Branch {
+	    DstBlock		    "TRAN::Transmission out torque (N-m)"
+	    DstPort		    1
+	  }
+	  Branch {
+	    Points		    [0, 50]
+	    DstBlock		    "To Workspace1"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Threshold Calculation"
+	  SrcPort		  1
+	  Points		  [-25, 0]
+	  DstBlock		  "shift_logic"
+	  DstPort		  3
+	}
+	Line {
+	  SrcBlock		  "Threshold Calculation"
+	  SrcPort		  2
+	  Points		  [-35, 0; 0, -110]
+	  DstBlock		  "shift_logic"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "shift_logic"
+	  SrcPort		  1
+	  Points		  [20, 0]
+	  Branch {
+	    Points		    [0, -90]
+	    DstBlock		    "transmission"
+	    DstPort		    2
+	  }
+	  Branch {
+	    Points		    [0, 50]
+	    Branch {
+	      Points		      [0, 50]
+	      Branch {
+		DstBlock		"Threshold Calculation"
+		DstPort			1
+	      }
+	      Branch {
+		DstBlock		"To Workspace3"
+		DstPort			1
+	      }
+	    }
+	    Branch {
+	      DstBlock		      "TRAN::gear number"
+	      DstPort		      1
+	    }
+	  }
+	}
+	Line {
+	  SrcBlock		  "shift_logic"
+	  SrcPort		  2
+	  Points		  [10, 0; 0, 35; -75, 0]
+	  DstBlock		  "Threshold Calculation"
+	  DstPort		  trigger
+	}
+      }
+    }
+    Block {
+      BlockType		      SubSystem
+      Name		      "Vehicle Model"
+      Ports		      [2, 2]
+      Position		      [55, 752, 745, 1088]
+      OpenFcn		      "open_system(gcb,'Force')"
+      MinAlgLoopOccurrences   off
+      RTWSystemCode	      "Auto"
+      FunctionWithSeparateData off
+      MaskPromptString	      "Image|scale"
+      MaskStyleString	      "edit,edit"
+      MaskTunableValueString  "off,on"
+      MaskCallbackString      "|"
+      MaskEnableString	      "on,on"
+      MaskVisibilityString    "on,on"
+      MaskToolTipString	      "on,on"
+      MaskVarAliasString      ","
+      MaskVariables	      "iname=@1;scale=@2;"
+      MaskInitialization      "blk = gcb;\n\np = get_param(blk,'Position');\n\nwd = p(3)-p(1);\nht = p(4)-p(2);\n\nar = wd/ht;\n\nimg = imread(iname);\nii = imfinfo(iname);\n\niar = ii.Width/ii.Height;\n"
+      MaskDisplay	      "image(img, [0.5-ii.Width/wd*scale/2, 0.5-ii.Height/ht*scale/2, ii.Width/wd*scale,ii.Height/ht*scale]);\n\n\n\n"
+      MaskIconFrame	      on
+      MaskIconOpaque	      off
+      MaskIconRotate	      "none"
+      MaskIconUnits	      "normalized"
+      MaskValueString	      "'veh.jpg'|0.5"
+      MaskTabNameString	      ","
+      System {
+	Name			"Vehicle Model"
+	Location		[615, 255, 1774, 849]
+	Open			off
+	ModelBrowserVisibility	off
+	ModelBrowserWidth	200
+	ScreenColor		"white"
+	PaperOrientation	"landscape"
+	PaperPositionMode	"auto"
+	PaperType		"usletter"
+	PaperUnits		"inches"
+	TiledPaperMargins	[0.500000, 0.500000, 0.500000, 0.500000]
+	TiledPageScale		1
+	ShowPageBoundaries	off
+	ZoomFactor		"100"
+	Block {
+	  BlockType		  Inport
+	  Name			  "TRAN::transmission out torque (N-m)"
+	  Position		  [145, 260, 165, 280]
+	  BackgroundColor	  "orange"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Inport
+	  Name			  "VEH::brake force (N)"
+	  Position		  [205, 475, 225, 495]
+	  BackgroundColor	  "orange"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "1/vehicle inertia\n(kg^-1)"
+	  Position		  [490, 264, 525, 296]
+	  BackgroundColor	  "yellow"
+	  Gain			  "1/veh.mass"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "1/wheel radius\n(m^-1)"
+	  Position		  [345, 253, 380, 287]
+	  BackgroundColor	  "yellow"
+	  Gain			  "1/whl.radius"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "1/wheel radius\n(m^-1) "
+	  Position		  [655, 263, 690, 297]
+	  BackgroundColor	  "yellow"
+	  Gain			  "1/whl.radius"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Signum
+	  Name			  "Sign"
+	  Position		  [740, 389, 770, 421]
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum"
+	  Ports			  [2, 1]
+	  Position		  [430, 258, 455, 302]
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  Inputs		  "+-"
+	  CollapseMode		  "All dimensions"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Sum
+	  Name			  "Sum1"
+	  Ports			  [2, 1]
+	  Position		  [810, 416, 835, 509]
+	  BackgroundColor	  "yellow"
+	  ShowName		  off
+	  CollapseMode		  "All dimensions"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Reference
+	  Name			  "Title Block1"
+	  Ports			  []
+	  Position		  [40, 12, 1039, 81]
+	  ShowName		  off
+	  SourceBlock		  "ni_annotations_lib/Title Block"
+	  SourceType		  "Unknown"
+	  ShowPortLabels	  "FromPortIcon"
+	  SystemSampleTime	  "-1"
+	  FunctionWithSeparateData "off"
+	  RTWMemSecFuncInitTerm	  "Inherit from model"
+	  RTWMemSecFuncExecute	  "Inherit from model"
+	  RTWMemSecDataConstants  "Inherit from model"
+	  RTWMemSecDataInternal	  "Inherit from model"
+	  RTWMemSecDataParameters "Inherit from model"
+	  tx_title		  "get_param(gcs,'Name')"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace1"
+	  Position		  [925, 386, 985, 404]
+	  ShowName		  off
+	  VariableName		  "hist_veh_spd"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace2"
+	  Position		  [925, 226, 985, 244]
+	  ShowName		  off
+	  VariableName		  "hist_veh_acc"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace3"
+	  Position		  [925, 201, 985, 219]
+	  ShowName		  off
+	  VariableName		  "hist_veh_force"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace4"
+	  Position		  [925, 251, 985, 269]
+	  ShowName		  off
+	  VariableName		  "hist_trans_out_spd"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  ToWorkspace
+	  Name			  "To Workspace5"
+	  Position		  [925, 526, 985, 544]
+	  ShowName		  off
+	  VariableName		  "hist_veh_load"
+	  MaxDataPoints		  "hist_sample_size"
+	  SampleTime		  "-1"
+	  SaveFormat		  "Array"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "final\ndrive ratio"
+	  Position		  [280, 253, 315, 287]
+	  BackgroundColor	  "yellow"
+	  Gain			  "trans.fr"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "final\ndrive ratio "
+	  Position		  [720, 264, 755, 296]
+	  BackgroundColor	  "yellow"
+	  Gain			  "trans.fr"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Gain
+	  Name			  "mph_per_m_per_s"
+	  Position		  [655, 328, 690, 362]
+	  BackgroundColor	  "yellow"
+	  Gain			  "mph_per_m_per_sec"
+	  ParameterDataType	  "sfix(16)"
+	  ParameterScaling	  "2^0"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	}
+	Block {
+	  BlockType		  Fcn
+	  Name			  "rolling + drag force\n(N)"
+	  Position		  [705, 426, 770, 454]
+	  BackgroundColor	  "yellow"
+	  Expr			  "whl.rr*veh.mass*9.81 + 1/2*veh.cd*air.rho*veh.area*u*u"
+	}
+	Block {
+	  BlockType		  Product
+	  Name			  "signed load\n(N)"
+	  Ports			  [2, 1]
+	  Position		  [865, 374, 890, 496]
+	  BackgroundColor	  "yellow"
+	  CollapseMode		  "All dimensions"
+	  OutDataType		  "sfix(16)"
+	  OutScaling		  "2^0"
+	  RndMeth		  "Floor"
+	}
+	Block {
+	  BlockType		  Integrator
+	  Name			  "vehicle speed\n(m/s)"
+	  Ports			  [1, 1]
+	  Position		  [555, 251, 585, 309]
+	  BackgroundColor	  "yellow"
+	  LowerSaturationLimit	  "0"
+	  ZeroCross		  off
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "VEJ::vehicle speed (mph)"
+	  Position		  [970, 335, 990, 355]
+	  BackgroundColor	  "lightBlue"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Block {
+	  BlockType		  Outport
+	  Name			  "VEH::transmission out speed\n(rad/s)"
+	  Position		  [970, 270, 990, 290]
+	  BackgroundColor	  "lightBlue"
+	  Port			  "2"
+	  IconDisplay		  "Port number"
+	  InitialOutput		  "0"
+	}
+	Line {
+	  SrcBlock		  "mph_per_m_per_s"
+	  SrcPort		  1
+	  Points		  [205, 0]
+	  Branch {
+	    Points		    [0, 50]
+	    DstBlock		    "To Workspace1"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "VEJ::vehicle speed (mph)"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "1/wheel radius\n(m^-1) "
+	  SrcPort		  1
+	  DstBlock		  "final\ndrive ratio "
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "signed load\n(N)"
+	  SrcPort		  1
+	  Points		  [15, 0; 0, 100]
+	  Branch {
+	    Points		    [-500, 0; 0, -245]
+	    DstBlock		    "Sum"
+	    DstPort		    2
+	  }
+	  Branch {
+	    DstBlock		    "To Workspace5"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "vehicle speed\n(m/s)"
+	  SrcPort		  1
+	  Points		  [30, 0]
+	  Branch {
+	    Points		    [0, 65]
+	    Branch {
+	      DstBlock		      "mph_per_m_per_s"
+	      DstPort		      1
+	    }
+	    Branch {
+	      Points		      [0, 60]
+	      Branch {
+		DstBlock		"Sign"
+		DstPort			1
+	      }
+	      Branch {
+		Points			[0, 35]
+		DstBlock		"rolling + drag force\n(N)"
+		DstPort			1
+	      }
+	    }
+	  }
+	  Branch {
+	    DstBlock		    "1/wheel radius\n(m^-1) "
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "1/vehicle inertia\n(kg^-1)"
+	  SrcPort		  1
+	  Points		  [5, 0]
+	  Branch {
+	    Points		    [0, -45]
+	    DstBlock		    "To Workspace2"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "vehicle speed\n(m/s)"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "Sum"
+	  SrcPort		  1
+	  DstBlock		  "1/vehicle inertia\n(kg^-1)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "1/wheel radius\n(m^-1)"
+	  SrcPort		  1
+	  Points		  [25, 0]
+	  Branch {
+	    Points		    [0, -60]
+	    DstBlock		    "To Workspace3"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "Sum"
+	    DstPort		    1
+	  }
+	}
+	Line {
+	  SrcBlock		  "final\ndrive ratio"
+	  SrcPort		  1
+	  DstBlock		  "1/wheel radius\n(m^-1)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "TRAN::transmission out torque (N-m)"
+	  SrcPort		  1
+	  DstBlock		  "final\ndrive ratio"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sign"
+	  SrcPort		  1
+	  DstBlock		  "signed load\n(N)"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "rolling + drag force\n(N)"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  1
+	}
+	Line {
+	  SrcBlock		  "Sum1"
+	  SrcPort		  1
+	  DstBlock		  "signed load\n(N)"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "VEH::brake force (N)"
+	  SrcPort		  1
+	  DstBlock		  "Sum1"
+	  DstPort		  2
+	}
+	Line {
+	  SrcBlock		  "final\ndrive ratio "
+	  SrcPort		  1
+	  Points		  [140, 0]
+	  Branch {
+	    Points		    [0, -20]
+	    DstBlock		    "To Workspace4"
+	    DstPort		    1
+	  }
+	  Branch {
+	    DstBlock		    "VEH::transmission out speed\n(rad/s)"
+	    DstPort		    1
+	  }
+	}
+      }
+    }
+  }
+}
+# Finite State Machines
+#
+#    Stateflow Version 6.7 (R2007b) dated Mar 27 2008, 16:33:27
+#
+#
+
+
+Stateflow {
+  machine {
+    id			    1
+    name		    "hil14_mdl_lib"
+    created		    "26-Aug-2014 12:51:45"
+    isLibrary		    1
+    firstTarget		    35
+    sfVersion		    67014000.000001
+  }
+  chart {
+    id			    2
+    name		    "Transmission Model/shift_logic"
+    windowPosition	    [299.25 153.75 453.75 276.75]
+    viewLimits		    [0 598.144 0 351.013]
+    zoomFactor		    1.458
+    screen		    [1 1 2560 1363 1.333333333333333]
+    treeNode		    [0 4 0 0]
+    viewObj		    2
+    machine		    1
+    subviewS {
+      zoomFactor	      1.458
+    }
+    decomposition	    SET_CHART
+    firstEvent		    28
+    firstData		    29
+    updateMethod	    DISCRETE
+    sampleTime		    "0.04"
+    chartFileNumber	    2
+  }
+  state {
+    id			    3
+    labelString		    "downshifting"
+    position		    [50.63 246.044 86.103 34.075]
+    fontSize		    10
+    arrowSize		    10
+    chart		    2
+    treeNode		    [9 0 10 0]
+    subviewer		    2
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    4
+    labelString		    "gear_state"
+    position		    [12.661 17.439 567.664 76.723]
+    fontSize		    10
+    arrowSize		    12.207
+    chart		    2
+    treeNode		    [2 5 0 9]
+    firstTransition	    15
+    subviewer		    2
+    type		    AND_STATE
+    decomposition	    CLUSTER_STATE
+    executionOrder	    1
+    firstEvent		    26
+  }
+  state {
+    id			    5
+    labelString		    "fourth\nentry: gear = 4;"
+    position		    [474.636 34.168 84.643 40.59]
+    fontSize		    10
+    arrowSize		    9.224
+    chart		    2
+    treeNode		    [4 0 0 7]
+    subviewer		    2
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    6
+    labelString		    "second\nentry: gear = 2;"
+    position		    [188.214 36.953 85.819 37.936]
+    fontSize		    10
+    arrowSize		    9.224
+    chart		    2
+    treeNode		    [4 0 7 8]
+    subviewer		    2
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    7
+    labelString		    "third\nentry: gear = 3;"
+    position		    [334.106 36.116 86.87 37.488]
+    fontSize		    10
+    arrowSize		    9.224
+    chart		    2
+    treeNode		    [4 0 5 6]
+    subviewer		    2
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    8
+    labelString		    "first\nentry: gear = 1;"
+    position		    [50.703 39.527 85.34 36.914]
+    fontSize		    10
+    arrowSize		    9.224
+    chart		    2
+    treeNode		    [4 0 6 0]
+    subviewer		    2
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    9
+    labelString		    "selection_state\nduring: CALC_TH;"
+    position		    [10.743 105.442 568.418 217.437]
+    fontSize		    10
+    arrowSize		    12.207
+    chart		    2
+    treeNode		    [2 11 4 0]
+    firstTransition	    19
+    subviewer		    2
+    subviewS {
+      x1		      -35.275
+      y1		      -42.119
+      zoomFactor	      2.808
+      pos		      [0 0 1340.435 601.385]
+      fontSize		      18.481
+    }
+    type		    AND_STATE
+    decomposition	    CLUSTER_STATE
+    executionOrder	    2
+  }
+  state {
+    id			    10
+    labelString		    "upshifting"
+    position		    [458.505 241.801 74.109 36.255]
+    fontSize		    10
+    arrowSize		    10
+    chart		    2
+    treeNode		    [9 0 11 3]
+    subviewer		    2
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  state {
+    id			    11
+    labelString		    "steady_state"
+    position		    [253.299 145.577 94.026 38.764]
+    fontSize		    10
+    arrowSize		    10
+    chart		    2
+    treeNode		    [9 0 0 10]
+    subviewer		    2
+    type		    OR_STATE
+    decomposition	    CLUSTER_STATE
+  }
+  transition {
+    id			    12
+    labelString		    "UP"
+    labelPosition	    [443.237 30.416 16.395 15.279]
+    fontSize		    10
+    arrowSize		    9.224
+    src {
+      id		      7
+      intersection	      [2 1 0 0.381 420.9759 50.3989 0 0]
+    }
+    dst {
+      id		      5
+      intersection	      [4 -1 0 0.5861 474.6359 50.9671 0 0]
+    }
+    midPoint		    [444.06 50.7015]
+    chart		    2
+    linkNode		    [4 14 17]
+    dataLimits		    [420.976 474.636 48.2 53.734]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    13
+    labelString		    "UP"
+    labelPosition	    [289.621 27.506 16.395 15.279]
+    fontSize		    10
+    arrowSize		    9.224
+    src {
+      id		      6
+      intersection	      [2 1 0 0.2923 274.033 48.0436 0 0]
+    }
+    dst {
+      id		      7
+      intersection	      [4 -1 0 0.689 334.1061 47.7732 0 0]
+    }
+    midPoint		    [300.4631 47.8996]
+    chart		    2
+    linkNode		    [4 15 14]
+    dataLimits		    [274.033 334.106 45.006 50.54]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    14
+    labelString		    "UP"
+    labelPosition	    [154.021 27.761 16.395 15.279]
+    fontSize		    10
+    arrowSize		    9.224
+    src {
+      id		      8
+      intersection	      [2 1 0 0.2824 136.0434 49.9509 0 0]
+    }
+    dst {
+      id		      6
+      intersection	      [4 -1 0 0.6654 188.2139 49.6482 0 0]
+    }
+    midPoint		    [158.3504 49.7897]
+    chart		    2
+    linkNode		    [4 13 12]
+    dataLimits		    [136.043 188.214 46.881 52.415]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    15
+    labelPosition	    [33.174 26.142 7.651 15.279]
+    fontSize		    10
+    arrowSize		    9.224
+    src {
+      intersection	      [0 0 0 0 29.3367 47.5456 0 0]
+    }
+    dst {
+      id		      8
+      intersection	      [4 -1 0 0.7868 50.703 47.3982 0 0]
+    }
+    midPoint		    [35.5719 47.4495]
+    chart		    2
+    linkNode		    [4 0 13]
+    dataLimits		    [29.337 50.703 44.631 50.165]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    16
+    labelString		    "DOWN"
+    labelPosition	    [428.709 70.669 34.975 15.279]
+    fontSize		    10
+    arrowSize		    9.224
+    src {
+      id		      5
+      intersection	      [4 -1 0 0.3598 474.6359 60.1552 0 0]
+    }
+    dst {
+      id		      7
+      intersection	      [2 1 0 0.6505 420.9759 60.5017 0 0]
+    }
+    midPoint		    [452.0545 60.2765]
+    chart		    2
+    linkNode		    [4 17 18]
+    dataLimits		    [420.976 474.636 57.734 63.269]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    17
+    labelString		    "DOWN"
+    labelPosition	    [286.337 72.677 34.975 15.279]
+    fontSize		    10
+    arrowSize		    9.224
+    src {
+      id		      7
+      intersection	      [4 -1 0 0.3495 334.1061 60.5017 0 0]
+    }
+    dst {
+      id		      6
+      intersection	      [2 1 0 0.6153 274.033 60.294 0 0]
+    }
+    midPoint		    [307.5336 60.3733]
+    chart		    2
+    linkNode		    [4 12 16]
+    dataLimits		    [274.033 334.106 57.527 63.061]
+    subviewer		    2
+    executionOrder	    2
+  }
+  transition {
+    id			    18
+    labelString		    "DOWN"
+    labelPosition	    [146.362 69.093 34.975 15.279]
+    fontSize		    10
+    arrowSize		    9.224
+    src {
+      id		      6
+      intersection	      [4 -1 0 0.3319 188.2139 62.2998 0 0]
+    }
+    dst {
+      id		      8
+      intersection	      [2 1 0 0.6092 136.0434 62.0159 0 0]
+    }
+    midPoint		    [165.9069 62.1486]
+    chart		    2
+    linkNode		    [4 16 0]
+    dataLimits		    [136.043 188.214 59.249 64.783]
+    subviewer		    2
+    executionOrder	    2
+  }
+  transition {
+    id			    19
+    labelPosition	    [297.249 127.526 7.651 15.279]
+    fontSize		    10
+    arrowSize		    10
+    src {
+      intersection	      [0 0 0 0.1467 297.353 123.8093 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [1 0 -1 0.4648 297.0026 145.5768 0 0]
+    }
+    midPoint		    [297.1246 129.84]
+    chart		    2
+    linkNode		    [9 0 20]
+    dataLimits		    [294.003 300.003 123.809 145.577]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    20
+    labelString		    "[speed > up_th]"
+    labelPosition	    [358.392 146.016 73.229 15.279]
+    fontSize		    10
+    arrowSize		    10
+    src {
+      id		      11
+      intersection	      [2 1 0 0.4364 347.3246 162.4948 0 0]
+    }
+    dst {
+      id		      10
+      intersection	      [1 0 -1 0.4254 490.0296 241.8005 0 0]
+    }
+    midPoint		    [443.073 178.668]
+    chart		    2
+    linkNode		    [9 19 21]
+    dataLimits		    [347.325 493.03 162.441 241.801]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    21
+    labelString		    "[speed < down_th]"
+    labelPosition	    [116.093 148.251 85.252 15.279]
+    fontSize		    10
+    arrowSize		    10
+    src {
+      id		      11
+      intersection	      [4 -1 0 0.5159 253.2986 164.3405 0 0]
+    }
+    dst {
+      id		      3
+      intersection	      [1 0 -1 0.3373 79.6741 246.044 0 0]
+    }
+    midPoint		    [137.9285 177.5474]
+    chart		    2
+    linkNode		    [9 20 23]
+    dataLimits		    [76.674 253.299 163.642 246.044]
+    subviewer		    2
+    executionOrder	    2
+  }
+  transition {
+    id			    22
+    labelString		    "[speed < up_th]"
+    labelPosition	    [359.467 214.892 73.229 15.279]
+    fontSize		    10
+    arrowSize		    10
+    src {
+      id		      10
+      intersection	      [4 -1 0 0.6747 458.5053 253.5951 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [3 0 1 0.2839 320.6299 184.3405 0 0]
+    }
+    midPoint		    [366.357 239.46]
+    chart		    2
+    linkNode		    [9 25 0]
+    dataLimits		    [317.63 458.505 184.34 253.603]
+    subviewer		    2
+    executionOrder	    2
+  }
+  transition {
+    id			    23
+    labelString		    "[speed > down_th]"
+    labelPosition	    [107.686 227.463 85.252 15.279]
+    fontSize		    10
+    arrowSize		    10
+    src {
+      id		      3
+      intersection	      [2 1 0 0.2511 136.7337 254.6004 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [3 0 1 0.8059 271.5466 184.3405 0 0]
+    }
+    midPoint		    [222.9232 243.042]
+    chart		    2
+    linkNode		    [9 21 24]
+    dataLimits		    [136.734 274.547 184.34 254.713]
+    subviewer		    2
+    executionOrder	    2
+  }
+  transition {
+    id			    24
+    labelString		    "after(TWAIT,tick)\n[speed <= down_th]\n{gear_state.DOWN}"
+    labelPosition	    [162.18 272.336 92.903 41.472]
+    fontSize		    10
+    arrowSize		    10
+    src {
+      id		      3
+      intersection	      [2 1 0 0.6609 136.7337 268.5648 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [3 0 1 0.6756 283.8028 184.3405 0 0]
+    }
+    midPoint		    [232.0486 251.6784]
+    chart		    2
+    linkNode		    [9 23 25]
+    dataLimits		    [136.734 286.803 184.34 268.565]
+    subviewer		    2
+    executionOrder	    1
+  }
+  transition {
+    id			    25
+    labelString		    "after(TWAIT,tick)\n[speed >= up_th]\n{gear_state.UP}"
+    labelPosition	    [327.58 270.207 80.88 41.472]
+    fontSize		    10
+    arrowSize		    10
+    src {
+      id		      10
+      intersection	      [4 -1 0 0.3414 458.5053 265.6778 0 0]
+    }
+    dst {
+      id		      11
+      intersection	      [3 0 1 0.4395 306.0035 184.3405 0 0]
+    }
+    midPoint		    [356.0373 247.4078]
+    chart		    2
+    linkNode		    [9 24 22]
+    dataLimits		    [303.003 458.505 184.34 265.678]
+    subviewer		    2
+    executionOrder	    1
+  }
+  event {
+    id			    26
+    name		    "DOWN"
+    linkNode		    [4 0 27]
+    scope		    LOCAL_EVENT
+    trigger		    EITHER_EDGE_EVENT
+    machine		    1
+  }
+  event {
+    id			    27
+    name		    "UP"
+    linkNode		    [4 26 0]
+    scope		    LOCAL_EVENT
+    trigger		    EITHER_EDGE_EVENT
+    machine		    1
+  }
+  event {
+    id			    28
+    name		    "CALC_TH"
+    linkNode		    [2 0 0]
+    scope		    OUTPUT_EVENT
+    trigger		    FUNCTION_CALL_EVENT
+    machine		    1
+  }
+  data {
+    id			    29
+    name		    "speed"
+    linkNode		    [2 0 30]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+	units			"double"
+      }
+    }
+    dataType		    "double"
+    fixptType {
+      slope		      1
+      baseType		      SF_UINT8_TYPE
+    }
+    units		    "double"
+  }
+  data {
+    id			    30
+    name		    "gear"
+    linkNode		    [2 29 31]
+    scope		    OUTPUT_DATA
+    machine		    1
+    props {
+      range {
+	minimum			"1"
+	maximum			"4"
+      }
+      initialValue	      "1"
+      type {
+	primitive		SF_UINT8_TYPE
+	units			"int"
+      }
+      frame		      SF_FRAME_NO
+    }
+    dataType		    "uint8"
+    fixptType {
+      slope		      1
+      baseType		      SF_UINT8_TYPE
+    }
+    units		    "int"
+  }
+  data {
+    id			    31
+    name		    "TWAIT"
+    linkNode		    [2 30 32]
+    scope		    PARAMETER_DATA
+    initFromWorkspace	    1
+    machine		    1
+    props {
+      type {
+	primitive		SF_UINT8_TYPE
+      }
+    }
+    dataType		    "uint8"
+    fixptType {
+      slope		      1
+      baseType		      SF_UINT8_TYPE
+    }
+  }
+  data {
+    id			    32
+    name		    "up_th"
+    linkNode		    [2 31 33]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+      }
+    }
+    dataType		    "double"
+    fixptType {
+      slope		      1
+      baseType		      SF_UINT8_TYPE
+    }
+  }
+  data {
+    id			    33
+    name		    "down_th"
+    linkNode		    [2 32 0]
+    scope		    INPUT_DATA
+    machine		    1
+    props {
+      type {
+	primitive		SF_DOUBLE_TYPE
+      }
+    }
+    dataType		    "double"
+    fixptType {
+      slope		      1
+      baseType		      SF_UINT8_TYPE
+    }
+  }
+  instance {
+    id			    34
+    name		    "Transmission Model/shift_logic"
+    machine		    1
+    chart		    2
+  }
+  target {
+    id			    35
+    name		    "sfun"
+    description		    "Default Simulink S-Function Target."
+    machine		    1
+    linkNode		    [1 0 0]
+  }
+}

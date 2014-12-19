@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RealTimeSequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Description>Take the car to about 75 mph</Description>
+	<FileFormatVersion Major="2012" Minor="0" Fix="0" Build="0" />
+	<Version Major="1" Minor="0" Fix="0" Build="9" />
+	<References>
+		<Reference>
+			<Path>&lt;VeriStand&gt;:\nivs.lib\Sequence Library\Standard\Timing\Wait.nivsseq</Path>
+			<Alias>Wait</Alias>
+		</Reference>
+	</References>
+	<Variables>
+		<ReturnType>
+			<Identifier>Pass</Identifier>
+			<DefaultValue xsi:type="BooleanValue">
+				<Value>true</Value>
+			</DefaultValue>
+		</ReturnType>
+		<Parameters>
+			<ParameterDeclaration>
+				<Description>Gas Pedal</Description>
+				<Identifier>Gas_Pedal</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Gas" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Key</Description>
+				<Identifier>Key</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Key" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Starter</Description>
+				<Identifier>Starter</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Starter" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>RPM</Description>
+				<Identifier>RPM</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/State/Simulated RPM" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Gear</Description>
+				<Identifier>Gear</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Gear" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Brake</Description>
+				<Identifier>Brake</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Brake" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Vehicle Speed</Description>
+				<Identifier>Vehicle_Speed</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/State/Vehicle Speed" />
+			</ParameterDeclaration>
+			<ParameterDeclaration>
+				<Description>Cruise Control Enable</Description>
+				<Identifier>Cruise_Control_Enable</Identifier>
+				<DefaultValue xsi:type="DoubleValue">
+					<Value>0</Value>
+				</DefaultValue>
+				<EvaluationMethod>ByReference</EvaluationMethod>
+				<DefaultAssignment Path="Aliases/Driver controls/Cruise Control/Cruise Control Enable" />
+			</ParameterDeclaration>
+		</Parameters>
+		<LocalVariables />
+	</Variables>
+	<Code>
+		<Setup>
+			<Body>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Pass = true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Key=true</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Starter =false</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Gas_Pedal = 0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Brake = 0</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Cruise_Control_Enable=false</ExpressionString>
+				</Statement>
+			</Body>
+		</Setup>
+		<Main>
+			<Body>
+				<Statement xsi:type="IfElse">
+					<Description>Is car started?</Description>
+					<TestExpression>
+						<ExpressionString>RPM&lt;500</ExpressionString>
+					</TestExpression>
+					<IfTrue>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Starter=true</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Gas_Pedal=0</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<Description>Set to Neutral gear</Description>
+							<ExpressionString>Gear=0</ExpressionString>
+						</Statement>
+						<Statement xsi:type="WhileLoop">
+							<Description>Wait till engine revs up</Description>
+							<AutoYield>true</AutoYield>
+							<Body>
+								<Statement xsi:type="Expression">
+									<ExpressionString>Wait(1)</ExpressionString>
+								</Statement>
+							</Body>
+							<LoopTest>
+								<ExpressionString>RPM&lt;600</ExpressionString>
+							</LoopTest>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Starter=false</ExpressionString>
+						</Statement>
+					</IfTrue>
+					<IfFalse />
+				</Statement>
+				<Statement xsi:type="IfElse">
+					<Description>Is car going too slow?</Description>
+					<TestExpression>
+						<ExpressionString>Vehicle_Speed&lt;70</ExpressionString>
+					</TestExpression>
+					<IfTrue>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Gas_Pedal=90</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<Description>Set to Neutral gear</Description>
+							<ExpressionString>Gear=4</ExpressionString>
+						</Statement>
+						<Statement xsi:type="WhileLoop">
+							<AutoYield>true</AutoYield>
+							<Body>
+								<Statement xsi:type="Expression">
+									<ExpressionString>Wait(1)</ExpressionString>
+								</Statement>
+							</Body>
+							<LoopTest>
+								<ExpressionString>Vehicle_Speed&lt;70</ExpressionString>
+							</LoopTest>
+						</Statement>
+					</IfTrue>
+					<IfFalse />
+				</Statement>
+				<Statement xsi:type="IfElse">
+					<Description>Is car going too slow?</Description>
+					<TestExpression>
+						<ExpressionString>Vehicle_Speed&gt;80</ExpressionString>
+					</TestExpression>
+					<IfTrue>
+						<Statement xsi:type="Expression">
+							<ExpressionString>Brake=50</ExpressionString>
+						</Statement>
+						<Statement xsi:type="Expression">
+							<Description>Set to Neutral gear</Description>
+							<ExpressionString>Gear=4</ExpressionString>
+						</Statement>
+						<Statement xsi:type="WhileLoop">
+							<AutoYield>true</AutoYield>
+							<Body>
+								<Statement xsi:type="Expression">
+									<ExpressionString>Wait(1)</ExpressionString>
+								</Statement>
+							</Body>
+							<LoopTest>
+								<ExpressionString>Vehicle_Speed&gt;80</ExpressionString>
+							</LoopTest>
+						</Statement>
+					</IfTrue>
+					<IfFalse />
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Gas_Pedal=45</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Gear=4</ExpressionString>
+				</Statement>
+				<Statement xsi:type="Expression">
+					<ExpressionString>Brake=0</ExpressionString>
+				</Statement>
+			</Body>
+		</Main>
+		<CleanUp>
+			<Body />
+		</CleanUp>
+	</Code>
+</RealTimeSequence>

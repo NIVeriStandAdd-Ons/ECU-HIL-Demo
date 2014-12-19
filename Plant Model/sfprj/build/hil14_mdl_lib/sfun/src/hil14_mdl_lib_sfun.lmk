@@ -1,0 +1,20 @@
+CC     = "c:\program files\matlab\r2007b\sys\lcc\bin\lcc.exe"
+LD     = "c:\program files\matlab\r2007b\sys\lcc\bin\lcclnk.exe"
+LIBCMD = "c:\program files\matlab\r2007b\sys\lcc\bin\lcclib.exe"
+CFLAGS = -c -Zp8 -DMATLAB_MEX_FILE -noregistrylookup
+LDFLAGS = -s -dll -L"c:\program files\matlab\r2007b\sys\lcc\lib"
+LIBFLAGS = 
+
+OBJECTS = \
+	"hil14_mdl_lib_sfun.obj"\
+	"c2_hil14_mdl_lib.obj"\
+
+INCLUDE_PATH= -I"c:\program files\matlab\r2007b\sys\lcc\include"  -I"c:\program files\matlab\r2007b\extern\include"  -I"c:\program files\matlab\r2007b\simulink\include"  -I"c:\program files\matlab\r2007b\stateflow\c\mex\include"  -I"c:\program files\matlab\r2007b\stateflow\c\debugger\include"  -I"z:\documents\ekb_work\z\prj\ni\hil14\sfprj\build\hil14_mdl_lib\sfun\src"  -I"z:\documents\ekb_work\z\prj\ni\hil14" 
+ 
+
+hil14_mdl_lib_sfun.lib : $(MAKEFILE) $(OBJECTS)
+	$(LIBCMD) $(LIBFLAGS) /OUT:hil14_mdl_lib_sfun.lib *.obj
+hil14_mdl_lib_sfun.obj :	"hil14_mdl_lib_sfun.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "hil14_mdl_lib_sfun.c"
+c2_hil14_mdl_lib.obj :	"c2_hil14_mdl_lib.c"
+	$(CC) $(CFLAGS) $(INCLUDE_PATH) "c2_hil14_mdl_lib.c"

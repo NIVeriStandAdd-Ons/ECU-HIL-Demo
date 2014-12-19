@@ -1,0 +1,76 @@
+Engine Device is source address 0
+Transmission Device is source address 3
+Fuel Sender Device is source address 160
+GPS Device is source address 255
+
+Items mapped to Engine Device
+
+PGN       Parameter          Selected Variable             Auto Create       
+61443 (0xF003)  Percent Load At Current Rpm     J1939.Engine.Percent Load At Current Rpm         True       Sysdef EEC2
+61444 (0xF004)  Engine Speed    J1939.Engine.Engine Speed         True       Sysdef EEC1
+61445 (0xF005)  Current Gear     J1939.Engine.Current Gear          True       
+61448 (0xF008)  Hydraulic Pressure          J1939.Engine.Hydraulic Pressure               True    HPG   
+64892 (0xFD7C) Diesel Particulate Filter Active Regeneration Inhibited Due to Inhibit Switch         J1939.Engine.Diesel Particulate Filter Active Regeneration Inhibited Due to Inhibit Switch      True       
+64892 (0xFD7C) Diesel Particulate Filter Lamp Command                J1939.Engine.Diesel Particulate Filter Lamp Command    True                
+64892 (0xFD7C) Exhaust System High Temperature Lamp Command        J1939.Engine.Exhaust System High Temperature Lamp Command               True       
+65110 (0xFE56)  Catalyst Tank Level          J1939.Engine.Catalyst Tank Level              True       
+65128 (0xFE68)  Hydraulic Temperature J1939.Engine.Hydraulic Temperature      True     VF  
+65164 (0xFE8C)  Auxiliary Pressure            J1939.Engine.Auxiliary Pressure                True     AAI  
+65164 (0xFE8C)  Auxiliary Temperature   J1939.Engine.Auxiliary Temperature       True       
+65253 (0xFEE5)  Engine Total Hours of Operation               J1939.Engine.Engine Total Hours of Operation    True       
+65262 (0xFEEE)  Engine Coolant Temperature      J1939.Engine.Engine Coolant Temperature          True       Sysdef ET1
+65271 (0xFEF7)  Battery Potential Voltage             J1939.Engine.Battery Potential Voltage  True       
+
+Informational-Reference found on: Main Layer \ Machine 2 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 2 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 2 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 2 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Boost Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Boost Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Boost Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Boost Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-Reference found on: Main Layer \ Machine 1 \ Engine Oil Pressure Text Gauge \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+Informational-References Parameter PGN = 65270 Byte = 2 Bit = 1 (Inlet/Exhaust Conditions 1-Boost Pressure )-Reference:MappedParameter
+Informational-Reference found on: CANPort1 \ Engine \ Variable mapped to J1939.Engine.Boost Pressure-Reference:MappedVariable
+
+Items mapped to Transmission : Source 3
+
+PGN       Parameter          Selected Variable             Auto Create       
+65265 (0xFEF1)  Wheel Based Vehicle Speed       J1939.Transmission.Wheel Based Vehicle Speed               True       Sysdef CCVS
+65272 (0xFEF8)  Transmission Oil Pressure            J1939.Transmission.Transmission Oil Pressure    True       Sysdef TRF1
+65272 (0xFEF8)  Transmission Oil Temperature   J1939.Transmission.Transmission Oil Temperature           True       Sysdef
+
+Informational-References Parameter PGN = 65265 Byte = 2 Bit = 1 (Cruise Control/Vehicle Speed-Wheel Based Vehicle Speed )-Reference:MappedParameter
+Informational-Reference found on: CANPort1 \ Transmission \ Variable mapped to J1939.Transmission.Wheel Based Vehicle Speed-Reference:MappedVariable
+
+Items mapped to Fuel Sender Device
+
+PGN       Parameter          Selected Variable             Auto Create       
+65276 (0xFEFC)  Fuel Level            J1939.Fuel Sender.Fuel Level      True       Sysdef DD
+
+Informational-Reference found on: All Screen Objects \ Text Gauge-Reference:Variable
+Informational-Reference found on: All Screen Objects \ Bar Gauge-Reference:Variable
+Informational-Reference found on: All Screen Objects \ Curved Bar Gauge-Reference:Variable
+Informational-Reference found on: Main Layer \ Transmission \ Fuel Level Bar Gauge-Reference:Variable
+Informational-Reference found on: Main Layer \ Machine 2 \ Fuel Level-Reference:Variable
+Informational-Reference found on: Main Layer \ Machine 1 \ Fuel Level-Reference:Variable
+Informational-References Parameter PGN = 65276 Byte = 2 Bit = 1 (Dash Display-Fuel Level )-Reference:MappedParameter
+Informational-Reference found on: CANPort1 \ Fuel Sender \ Variable mapped to J1939.Fuel Sender.Fuel Level-Reference:MappedVariable
+
+Items mapped to GPS Device
+
+PGN       Parameter          Selected Variable             Auto Create       
+129026 (0x1F802)             Speed Over Ground       NMEA2000.GPS.Speed Over Ground      True       
+129026 (0x1F802)             Course Over Ground      NMEA2000.GPS.Course Over Ground     True       
+129025 (0x1F801)             Longitude            NMEA2000.GPS.Longitude          True       
+129025 (0x1F801)             Latitude               NMEA2000.GPS.Latitude              True       
+
+Informational-Reference found on: Main Layer \ GPS \ Degrees Latitude-Reference:Variable
+Informational-References Parameter PGN = 129025 Byte = 1 Bit = 1 (Position, Rapid Update-Latitude )-Reference:MappedParameter
+Informational-Reference found on: CANPort1 \ GPS \ Variable mapped to NMEA2000.GPS.Latitude-Reference:MappedVariable
+Informational-Reference found on: Latitude.Degrees \ Calculate Latitude.Degrees-MOD(NMEA2000_GPS_Latitude,1)-Reference:Equation
+Informational-Reference found on: Latitude.Seconds \ Calculate Latitude.Seconds-IF(NMEA2000_GPS_Latitude<0,MOD(NMEA2000_GPS_Latitude*-3600,60),MOD(NMEA2000_GPS_Latitude*3600,60))-Reference:Equation
+Informational-Reference found on: Latitude.Minutes \ Calculate Latitude.Minutes-IF(NMEA2000_GPS_Latitude<0,INT(MOD(NMEA2000_GPS_Latitude*-60,60)),INT(MOD(NMEA2000_GPS_Latitude*60,60)))-Reference:Equation

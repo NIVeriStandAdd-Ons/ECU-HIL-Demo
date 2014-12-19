@@ -1,0 +1,9 @@
+Top level model if you're running just in Simulink is hil14_test.mdl
+
+Models we put into the NI VeriStand system, as compiled DLLs:
+-finj_mdl_demo_v14.mdl
+-eng_mdl_demo_v14.mdl
+-mantran_mdl_demo_v14.mdl
+-veh_mdl_demo_v14.mdl
+
+Also, there is a auto transmition model that we compile and can swap out: tran_mdl_demo_v14.mdl

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SourceFile xmlns="http://www.ni.com/PlatformFramework">
+    <SourceModelFeatureSet>
+        <ParsableNamespace AssemblyFileVersion="1.0.0.13870" FeatureSetName="NI VeriStand UI Manager" Name="http://www.ni.com/VeriStand.UIManager.ScreenModel" Version="2.0.0.32768" />
+        <ParsableNamespace AssemblyFileVersion="1.0.0.13870" FeatureSetName="NI VeriStand UI Manager" Name="http://www.ni.com/Controls.VeriStand.Design" Version="2.0.0.32768" />
+        <ParsableNamespace AssemblyFileVersion="2.0.0.13870" FeatureSetName="NI VeriStand UI Manager" Name="http://www.ni.com/PlatformFramework" Version="2.0.0.49152" />
+    </SourceModelFeatureSet>
+    <Screen Version="1.0.0.0" xmlns="http://www.ni.com/VeriStand.UIManager.ScreenModel">
+        <ScreenSurface Height="[float]1372" Id="1" Width="[float]1535.07336">
+            <ChannelChart BaseName="[string]Chart" Height="[float]304" Id="57" Label="[UIModel]64" Left="[float]300" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]69" Width="[float]851" xmlns="http://www.ni.com/Controls.VeriStand.Design">
+                <Axis Adjuster="[RangeAdjuster]ContinuousChart" Id="58" Label="[string]X" MajorDivisions="[UIModel]60" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
+                    <RangeLabeledDivisions Id="60" LabelPresenter="[string]LVTime:h:mm:ss.fff tt&#xA;MM/dd/yyyy" RangeDivisionsMode="[RangeDivisionsMode]Count: 5" />
+                </Axis>
+                <Axis Adjuster="[RangeAdjuster]FitVisibleExactly" Id="59" Label="[string]Y" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 10, System.Double" ValueType="[Type]Double" />
+                <Plot Channel="[string]Aliases/State/Sparks/Spark 1 Start angle" HorizontalScale="[UIModel]58" Id="69" Label="[string]Spark 1 Start angle" VerticalScale="[UIModel]59">
+                    <PlotRenderer Id="70" />
+                </Plot>
+            </ChannelChart>
+            <PlotLegend Graph="[UIModel]57" Id="61" Left="[float]1158" Top="[float]74" Visible="[bool]True" xmlns="http://www.ni.com/Controls.VeriStand.Design" />
+            <CursorLegend Graph="[UIModel]57" Height="[float]80" Id="62" Left="[float]305" MinHeight="[float]80" Top="[float]402" Visible="[bool]False" Width="[float]316" xmlns="http://www.ni.com/Controls.VeriStand.Design" />
+            <GraphTools Graph="[UIModel]57" Id="63" Left="[float]305" Top="[float]380" Visible="[bool]False" xmlns="http://www.ni.com/Controls.VeriStand.Design" />
+            <Label Id="64" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]57" Left="[float]300" Locked="[bool]True" OffsetX="[float]0" OffsetY="[float]-20" Text="[string]Chart" Top="[float]49" Visible="[bool]False" />
+            <ChannelChart BaseName="[string]Chart" Height="[float]304" Id="71" Label="[UIModel]80" Left="[float]300" PreferIndexData="[bool]False" RenderMode="[RenderMode]Hardware" SuppressScaleLayout="[bool]False" Top="[float]373" Width="[float]851" xmlns="http://www.ni.com/Controls.VeriStand.Design">
+                <Axis Adjuster="[RangeAdjuster]ContinuousChart" Id="72" Label="[string]X" MajorDivisions="[UIModel]75" Orientation="[SMOrientation]Horizontal" Range="[IRange]0, 100, System.Double" ValueType="[Type]Double">
+                    <RangeLabeledDivisions Id="75" LabelPresenter="[string]LVTime:h:mm:ss.fff tt&#xA;MM/dd/yyyy" RangeDivisionsMode="[RangeDivisionsMode]Count: 5" />
+                </Axis>
+                <Axis Adjuster="[RangeAdjuster]FitVisibleExactly" Id="73" Label="[string]Y" Orientation="[SMOrientation]Vertical" Range="[IRange]0, 10, System.Double" ValueType="[Type]Double" />
+                <Plot Channel="[string]Aliases/Knock/Knock Amp Cyl 1" HorizontalScale="[UIModel]72" Id="83" Label="[string]Knock Amp Cyl 1" VerticalScale="[UIModel]73">
+                    <PlotRenderer Id="84" />
+                </Plot>
+            </ChannelChart>
+            <PlotLegend Graph="[UIModel]71" Height="[float]52" Id="77" Left="[float]1158" Top="[float]378" Visible="[bool]True" xmlns="http://www.ni.com/Controls.VeriStand.Design" />
+            <CursorLegend Graph="[UIModel]71" Height="[float]80" Id="78" Left="[float]305" MinHeight="[float]80" Top="[float]706" Visible="[bool]False" Width="[float]316" xmlns="http://www.ni.com/Controls.VeriStand.Design" />
+            <GraphTools Graph="[UIModel]71" Id="79" Left="[float]305" Top="[float]684" Visible="[bool]False" xmlns="http://www.ni.com/Controls.VeriStand.Design" />
+            <Label Id="80" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]71" Left="[float]300" Locked="[bool]True" OffsetX="[float]0" OffsetY="[float]-20" Text="[string]Chart_2" Top="[float]353" Visible="[bool]False" />
+            <ScreenSurfaceCanvas Background="[SMSolidColorBrush]#80808080" BaseName="[string]Canvas" Height="[float]244" Id="91" Label="[UIModel]92" Left="[float]61" Top="[float]333" Width="[float]165" xmlns="http://www.ni.com/Controls.VeriStand.Design">
+                <ChannelNumericText Channel="[string]Aliases/Knock/Knock Amp Cyl 1" Font="[SMFont]0,16.875," Height="[float]45" Id="85" Label="[UIModel]86" Left="[float]23" ThemeColorPaletteName="[string]Metallic Blue" Top="[float]118" ValueType="[Type]Double" Width="[float]100" />
+                <Label Id="86" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]85" Left="[float]23" Locked="[bool]True" OffsetX="[float]0" OffsetY="[float]-20" Text="[string]Knock Amp Cyl 1" Top="[float]98" xmlns="http://www.ni.com/VeriStand.UIManager.ScreenModel" />
+                <ChannelNumericText Channel="[string]Aliases/Knock/Knock Base Amp" Font="[SMFont]0,16.125," Height="[float]43" Id="87" Label="[UIModel]88" Left="[float]23" ThemeColorPaletteName="[string]Metallic Blue" Top="[float]41" ValueType="[Type]Double" Width="[float]100" />
+                <Label Id="88" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]87" Left="[float]23" Locked="[bool]True" OffsetX="[float]0" OffsetY="[float]-20" Text="[string]Knock Base Amp" Top="[float]21" xmlns="http://www.ni.com/VeriStand.UIManager.ScreenModel" />
+                <ChannelRingSelector AllowNonSequentialValues="[bool]True" AllowUndefinedValueEntry="[bool]False" Channel="[string]Aliases/Fault/Knock_Fault" Height="[float]23" Id="95" IsTypeAheadEnabled="[bool]True" Label="[UIModel]97" Left="[float]23" Top="[float]190" ValueType="[Type]Double" VisualMode="[SelectorVisualMode]RingStyle" Width="[float]112">
+                    <RingSelectorInfo DisplayValue="[string]Pass-through" Id="98" IsEnabled="[bool]True" Value="[double]1" ValueType="[Type]Double" />
+                    <RingSelectorInfo DisplayValue="[string]Open Circuit" Id="99" IsEnabled="[bool]True" Value="[double]2" ValueType="[Type]Double" />
+                </ChannelRingSelector>
+                <Label Id="97" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]95" Left="[float]23" Locked="[bool]True" OffsetX="[float]0" OffsetY="[float]-20" Text="[string]Knock_Fault" Top="[float]170" xmlns="http://www.ni.com/VeriStand.UIManager.ScreenModel" />
+            </ScreenSurfaceCanvas>
+            <Label Id="92" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]91" Left="[float]61" Locked="[bool]True" OffsetX="[float]0" OffsetY="[float]-20" Text="[string]Canvas" Top="[float]313" Visible="[bool]False" />
+            <LVImage BaseName="[string]Image" Height="[float]253" Id="93" Label="[UIModel]94" Left="[float]18" Source="[string]pack://application:,,,/NationalInstruments.VeriStand.UIManager.Application;component/Resources/ScreenSurface/nivs.png" Stretch="[SMStretch]Uniform" Top="[float]30" Width="[float]189" xmlns="http://www.ni.com/PlatformFramework" />
+            <Label Id="94" LabelAlignment="[PartAlignment]TopLeft" LabelOwner="[UIModel]93" Left="[float]18" Locked="[bool]True" OffsetX="[float]0" OffsetY="[float]-20" Text="[string]Image" Top="[float]10" Visible="[bool]False" />
+        </ScreenSurface>
+    </Screen>
+</SourceFile>
